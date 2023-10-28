@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+  <body>
+    <div class="container mt-4">
+      <h1 class="mb-3">Bienvenido {{ nombreUsuario }}</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Membresia basica</h5>
+              <p class="card-text">Estatus actual de mi membresia</p>
+              <a class="btn btn-gym" routerLink="../membresia">Detalles</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Detalles de proximo pago</h5>
+              <p class="card-text">
+                Tu cuota mensual para Noviembre es $300 Vencimiento 10/11/2023
+              </p>
+              <a class="btn btn-gym" routerLink="../pagos">Detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <h3>Mi plan adquirido</h3>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Beneficios de tu plan</h5>
+              <p class="card-text">Area de peso libre y peso integrado</p>
+              <br />
+              <p>Acceso ilimitado</p>
+              <br />
+
+              Sin multa por cancelación
+            </div>
+            <a class="btn btn-gym">Detalles</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tu gimnasio</h5>
+              <p class="card-text">Las hadas</p>
+              Av. de las torres # 45 Colonia las hadas Puebla Puebla
+            </div>
+            <a class="btn btn-gym">Quieres cambiar de ubicacion?</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Tu codigo de acceso</h5>
+              <a [href]="qrCodeDownloadLink">Descargar</a>
+              <p class="card-text">
+       
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Notas</h5>
+              <p class="card-text">
+                Notas y observaciones adicionales sobre el cliente.
+              </p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+  </body>
+
