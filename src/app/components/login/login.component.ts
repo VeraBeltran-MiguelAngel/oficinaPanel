@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // if (this.auth.isLoggedIn()) {
-    //   this.router.navigate(['admin']);
-    // }
+    //esta parte evita que el usuario regrese al login sin desloguearse
+    if (this.auth.isLoggedIn()) {
+      this.router.navigate(['admin']);
+    }
   }
 
   onSubmit(): void {
