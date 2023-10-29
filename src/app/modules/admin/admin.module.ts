@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   FaIconLibrary,
@@ -24,18 +24,13 @@ import {
   faCreditCard,
 } from '@fortawesome/free-regular-svg-icons';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
-import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [
-    AdminDashboardComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-  ],
+  declarations: [AdminDashboardComponent, HeaderComponent, FooterComponent, HomeComponent],
   imports: [
     CommonModule,
-    AppRoutingModule,
+    AdminRoutingModule,
     MatToolbarModule,
     FontAwesomeModule,
   ],

@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.auth.isLoggedIn()) {
-      this.router.navigate(['cliente']);
-    }
+    // if (this.auth.isLoggedIn()) {
+    //   this.router.navigate(['admin']);
+    // }
   }
 
   onSubmit(): void {
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           console.log(respuesta);
           //guardamos el registro del usuario en el local storage
           this.auth.setUserData(JSON.stringify(respuesta));
-          this.router.navigate(['/cliente']);
+          this.router.navigate(['/admin']);
         },
         error: (paramError) => {
           this.toastr.error(paramError, 'Error', {

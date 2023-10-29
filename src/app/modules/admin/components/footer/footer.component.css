@@ -1,0 +1,75 @@
+/**porpiedades footer --------------------------------------------- **/
+/**propiedades footer logo**/
+.logo_f {
+    padding-top: 30px;
+    width: 50%;
+}
+
+/**propiedades grid footer**/
+.grid_fp {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+/**propiedades footer grid #1 img**/
+.grid_fh1 {
+    padding-top: 15px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/**propiedades textos footer**/
+.txt_footer {
+    color: white;
+    display: block;
+    font-size: medium;
+}
+
+/**propiedades titulos textos footer**/
+.titles_footer {
+    text-decoration: underline;
+    color: white;
+    padding-top: 25px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+/**propiedades titulo redes **/
+.txt_footer_redes {
+    padding-top: 25px;
+    color: white;
+    font-size: medium;
+    display: block;
+    font-weight: bold;
+}
+
+/**propiedades btn redes sociales **/
+.btn_follow {
+    margin: 10px;
+}
+
+/**propiedades footer**/
+footer {
+    background-color: #434343;
+    min-height: 139px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+  /**propiedades de los iconos google y facebook**/
+fa-icon {
+    font-size: x-large;
+}
+
+/**PROPIEDADES BODY CONTENDOR**/
+
+
+.content_footer {
+    margin: 0;
+    position: relative;
+    padding-bottom: 139px;
+    min-height: 100vh;
+}
