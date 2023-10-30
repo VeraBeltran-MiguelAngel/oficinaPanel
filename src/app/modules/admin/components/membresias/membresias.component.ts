@@ -54,7 +54,7 @@ export class MembresiasComponent implements OnInit {
 
   cancelar() {
     this.formulariodePlan.reset(); // Esto restablecerá los valores del formulario
-    this.router.navigateByUrl('/planLista');
+    this.router.navigateByUrl('/admin/listaMembresias');
   }
 
   enviar(): any {
@@ -71,7 +71,7 @@ export class MembresiasComponent implements OnInit {
             .afterClosed()
             .subscribe((cerrarDialogo: Boolean) => {
               if (cerrarDialogo) {
-                this.router.navigateByUrl('/planLista');
+                this.router.navigateByUrl('/admin/listaMembresias');
               } else {
               }
             });
