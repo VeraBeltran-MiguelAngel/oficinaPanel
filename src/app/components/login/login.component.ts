@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe({
         next: (respuesta) => {
+          console.log("llego");
           if (respuesta[0].rol === 'Administrador') {
             this.toastr.success('Bienvenido administrador', '', {
               positionClass: 'toast-bottom-left',

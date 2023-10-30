@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import {
   FaIconLibrary,
   FontAwesomeModule,
@@ -37,6 +40,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MembresiasComponent } from './components/membresias/membresias.component';
 import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
 import { MensajeEmergentesComponent } from './components/mensaje-emergentes/mensaje-emergentes.component';
+import { MembresiasListaComponent } from './components/membresias-lista/membresias-lista.component';
+import { MensajeEliminarComponent } from './components/mensaje-eliminar/mensaje-eliminar.component';
+import { MembresiasEditarComponent } from './components/membresias-editar/membresias-editar.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +53,9 @@ import { MensajeEmergentesComponent } from './components/mensaje-emergentes/mens
     MembresiasComponent,
     ColaboradoresComponent,
     MensajeEmergentesComponent,
+    MembresiasListaComponent,
+    MensajeEliminarComponent,
+    MembresiasEditarComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +73,9 @@ import { MensajeEmergentesComponent } from './components/mensaje-emergentes/mens
     MatSelectModule,
     ReactiveFormsModule,
     FormsModule,
-    
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
 })
 export class AdminModule {

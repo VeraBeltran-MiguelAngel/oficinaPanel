@@ -1,0 +1,21 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { MembresiasEditarComponent } from './membresias-editar.component';
+
+describe('MembresiasEditarComponent', () => {
+  let component: MembresiasEditarComponent;
+  let fixture: ComponentFixture<MembresiasEditarComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [MembresiasEditarComponent]
+    });
+    fixture = TestBed.createComponent(MembresiasEditarComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
