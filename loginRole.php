@@ -31,11 +31,11 @@ if (isset($_GET["credenciales"])) {
     // $password_hash = password_hash($data->password, PASSWORD_DEFAULT);
     $pass = $data->password;
 
-    $consultaRol = "   SELECT usuarios.idUsuarios, usuarios.email, roles.nombre AS rol
-    FROM usuarios
-    INNER JOIN usuarios_has_roles ON usuarios.idUsuarios = usuarios_has_roles.Usuarios_idUsuarios
-    INNER JOIN roles ON usuarios_has_roles.Roles_idRoles = roles.idRoles
-    WHERE usuarios.email='" . $username . "' AND usuarios.pass ='" . $pass . "'";
+    $consultaRol = "SELECT Usuarios.idUsuarios, Usuarios.email, Roles.nombre AS rol 
+    FROM Usuarios 
+    INNER JOIN Usuarios_has_Roles ON Usuarios.idUsuarios = Usuarios_has_Roles.Usuarios_idUsuarios 
+    INNER JOIN Roles ON Usuarios_has_Roles.Roles_idRoles = Roles.idRoles 
+    WHERE Usuarios.email ='" . $username . "' AND Usuarios.pass ='" . $pass . "'";
 
     // echo $consultaRol;
 
