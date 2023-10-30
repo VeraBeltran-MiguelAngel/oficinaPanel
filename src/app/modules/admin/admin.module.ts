@@ -6,6 +6,15 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSlideToggleModule, _MatSlideToggleRequiredValidatorModule} from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import {
   FaIconLibrary,
   FontAwesomeModule,
@@ -27,6 +36,7 @@ import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './components/home/home.component';
 import { MembresiasComponent } from './components/membresias/membresias.component';
 import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
+import { MensajeEmergentesComponent } from './components/mensaje-emergentes/mensaje-emergentes.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +46,25 @@ import { ColaboradoresComponent } from './components/colaboradores/colaboradores
     HomeComponent,
     MembresiasComponent,
     ColaboradoresComponent,
+    MensajeEmergentesComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MatToolbarModule,
     FontAwesomeModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    _MatSlideToggleRequiredValidatorModule,
+    MatRadioModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    
   ],
 })
 export class AdminModule {
