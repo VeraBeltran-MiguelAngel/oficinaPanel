@@ -14,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   //variable que guarda el endpoint en el srver API: string = 'conf/';
-  API: string = 'http://localhost/plan/conexion.php';
+  API: string = 'conf/loginRole.php/';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 

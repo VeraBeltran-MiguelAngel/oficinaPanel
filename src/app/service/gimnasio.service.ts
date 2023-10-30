@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GimnasioService {
 
-  API: string = 'http://localhost/plan/gimnasio.php'
+  API: string = 'https://olympus.arvispace.com/conPrincipal/gimnasio.php'
   constructor(private clienteHttp:HttpClient) {
   }
 
