@@ -25,9 +25,18 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { HomeComponent } from './components/home/home.component';
+import { MembresiasComponent } from './components/membresias/membresias.component';
+import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
 
 @NgModule({
-  declarations: [AdminDashboardComponent, HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [
+    AdminDashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    MembresiasComponent,
+    ColaboradoresComponent,
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

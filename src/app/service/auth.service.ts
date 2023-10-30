@@ -14,11 +14,20 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   //variable que guarda el endpoint en el srver API: string = 'conf/';
-  API: string = 'http://localhost/login/';
+  API: string = 'http://localhost/login/loginRole.php/';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private router: Router, private clienteHttp: HttpClient, private toastr:ToastrService) {}
+  //guardar el json string en un arreglo (primero lo conviertes a json)
+  usuarioRegistrado: any[] = [];
+  //para guardar el rol del usuario
+  rol: string;
+
+  constructor(
+    private router: Router,
+    private clienteHttp: HttpClient,
+    private toastr: ToastrService
+  ) {}
 
   setUserData(userData: string): void {
     localStorage.setItem('userData', userData);
@@ -31,6 +40,7 @@ export class AuthService {
   isLoggedIn() {
     return this.getUserData() !== null;
   }
+
 
   logout() {
     localStorage.removeItem('userData');
@@ -48,21 +58,21 @@ export class AuthService {
 
   login(credenciales: User): Observable<any> {
     return this.clienteHttp
-      .post(this.API + '?credenciales', credenciales, { headers: this.httpHeaders })
+      .post(this.API + '?credenciales', credenciales, {
+        headers: this.httpHeaders,
+      })
       .pipe(
         catchError((err: any) => {
           if (err.status === 401) {
             this.router.navigate(['/login']);
             const errorMessage = err.error.message;
             // this.toastr.error(errorMessage,'Error');
-          //  alert(`Error 401: ${errorMessage}`);
+            //  alert(`Error 401: ${errorMessage}`);
             return throwError(() => errorMessage);
-          }else{
+          } else {
             return throwError(() => 'Error desconocido');
           }
         })
       );
   }
-
-
 }

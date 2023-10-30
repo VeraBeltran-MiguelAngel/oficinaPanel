@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <body>
   <div class="container mt-4">
-    <h1 class="mb-3">Bienvenido {{ nombreUsuario }}</h1>
+    <h1 class="mb-3">Bienvenido {{ rol }}</h1>
     <div class="row">
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Membresia basica</h5>
-            <p class="card-text">Estatus actual de mi membresia</p>
-            <a class="btn btn-gym" routerLink="../membresia">Detalles</a>
+            <h4 class="card-title">Membresias</h4>
+            <p class="card-text">Configura las membresias de tu gimnasio</p>
+            <a class="btn btn-gym" routerLink="../membresias">Configurar</a>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Detalles de proximo pago</h5>
+            <h4 class="card-title">Colaboradores</h4>
             <p class="card-text">
-              Tu cuota mensual para Noviembre es $300 Vencimiento 10/11/2023
+              Configura la informacion de tus colaboradores
             </p>
-            <a class="btn btn-gym" routerLink="../pagos">Detalles</a>
+            <a class="btn btn-gym" routerLink="../colaboradores">Configurar</a>
           </div>
         </div>
       </div>
     </div>
     <br />
 
-    <h3>Mi plan adquirido</h3>
+    <!-- <h3>Mi plan adquirido</h3>
 
     <div class="row mt-4">
       <div class="col-md-6">
@@ -53,7 +53,7 @@
           <a class="btn btn-gym">Quieres cambiar de ubicacion?</a>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </body>

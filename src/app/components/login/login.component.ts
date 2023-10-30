@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   hide = true;
   loginForm: FormGroup;
 
+  //guardar la respuesta del api en un array
+  resApi: any[] = [];
+
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -32,21 +35,27 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
   onSubmit(): void {
     console.log('Hiciste clic en enviar');
-    //imprime los datos recibidos del formulario
     console.log(this.loginForm.value);
-
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe({
         next: (respuesta) => {
-          this.toastr.success('Bienvenido', '', {
-            positionClass: 'toast-bottom-left',
-          });
-          console.log(respuesta);
-          //guardamos el registro del usuario en el local storage
-          this.auth.setUserData(JSON.stringify(respuesta));
-          this.router.navigate(['/admin']);
+          if (respuesta[0].rol === 'Administrador') {
+            this.toastr.success('Bienvenido administrador', '', {
+              positionClass: 'toast-bottom-left',
+            });
+            console.log(respuesta);
+            // Guardamos el registro del usuario en el local storage (en formato cadena)
+            this.auth.setUserData(JSON.stringify(respuesta));
+            this.router.navigate(['/admin']);
+          } else {
+            console.log(respuesta);
+            this.toastr.error('Tu cuenta no tiene permisos suficientes', 'Error', {
+              positionClass: 'toast-bottom-left',
+            });
+          }
         },
         error: (paramError) => {
           this.toastr.error(paramError, 'Error', {
@@ -56,6 +65,7 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+  
 
   getErrorMessage() {
     const usernameControl = this.loginForm.get('username');
