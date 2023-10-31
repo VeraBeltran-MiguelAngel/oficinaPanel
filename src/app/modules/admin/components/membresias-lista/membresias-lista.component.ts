@@ -44,7 +44,8 @@ export class MembresiasListaComponent implements OnInit{
         if (confirmado) {
           this.planService.borrarPlan(idMem).subscribe((respuesta) => {
             console.log("si entro") 
-            window.location.reload();       
+            //window.location.reload();    
+            this.ngOnInit();
           },
           (error) => {
             console.log("Error al eliminar:", error);

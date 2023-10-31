@@ -44,7 +44,7 @@ export class MembresiasComponent implements OnInit {
       if (Array.isArray(respuesta)) {
         this.gimnasio = respuesta.map((dato) => ({
           value: dato.idGimnasio, // Valor que se enviará al seleccionar
-          label: dato.nombreColonia, // Etiqueta que se mostrará en el combo
+          label: dato.nombreGym, // Etiqueta que se mostrará en el combo
         }));
       } else {
         console.error("La respuesta no es un arreglo.");
