@@ -87,3 +87,47 @@ at-menu {
     color: white;
     font-size: larger;
 }
+
+/**propiedades lista **/
+#prueba {
+	color: white;
+    font-size: larger;
+    margin: 0px 5px;
+}
+
+#ops {
+    display: flex; 
+    align-items: center;
+    border-radius: 15px;
+	background: #FD9727;
+    margin: 0 10px;
+    height: 40px;
+    width: auto;
+}
+
+nav {
+    border-bottom: #FD9727 solid;
+    border-width: 7px;
+}
+
+#navbarNav {
+    text-align: right;
+    padding-left: 15px;
+}
+
+@media (max-width: 991px) {
+	#prueba {
+		color: black;
+        font-size: medium;
+        margin: 0;
+	}
+
+    #ops {
+        display: block;
+        align-items: end;
+        border-radius: none;
+        background: white;
+        margin: 0;
+        height: auto;
+    }
+}

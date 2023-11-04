@@ -70,8 +70,16 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Acciones</th>
         <td mat-cell *matCellDef="let item">
-          <mat-icon class="edit-icon" routerLink="/admin/editarMembresias/{{item.idMem}}">edit</mat-icon>
-          <mat-icon class="delete-icon" (click)="borrarPlan(item.idMem)" >delete</mat-icon>
+          <!--<mat-icon class="edit-icon" routerLink="/admin/editarMembresias/{{item.idMem}}">edit</mat-icon>
+          <mat-icon class="delete-icon" (click)="borrarPlan(item.idMem)" >delete</mat-icon>-->
+
+          <button mat-icon-button color="primary" routerLink="/admin/editarMembresias/{{item.idMem}}">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="borrarPlan(item.idMem)">
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </ng-container>
   

@@ -53,9 +53,8 @@
 /**propiedades footer**/
 footer {
     background-color: #434343;
-    min-height: 139px;
-    position: absolute;
-    bottom: 0;
+    color: white;
+    min-height: auto;
     width: 100%;
 }
 
@@ -72,4 +71,14 @@ fa-icon {
     position: relative;
     padding-bottom: 139px;
     min-height: 100vh;
+}
+
+/**propiedades bootstrap**/
+#cr {
+    font-size: smaller;
+    color: white;
+}
+
+#tag_a {
+    color: white;
 }

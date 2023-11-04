@@ -1,1 +1,57 @@
-<p>colaboradores works!</p>
+ <div class="container mt-4">
+    <h2 class="mb-3">Lista de colaboradores</h2>
+
+    <div style="text-align: right; margin-bottom: 50px;">
+        <button mat-raised-button routerLink="/admin/alta-colaborador" style="background-color: #fd9727; font-size: 16px; margin-right: 100px; "><mat-icon>add</mat-icon>AGREGAR COLABORADOR</button>
+      </div>
+
+    <div class="mb-3">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre de colaborador</mat-label>
+            <span matPrefix class="icon_search"><mat-icon>search</mat-icon></span>
+            <input matInput placeholder="Nombre colaborador" #txtSearch (keyup)="onSearchPokemon( txtSearch.value )">
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">RFC</th>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Sucursal</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let empleado of empleados | listarEmpleados:page:search">
+                  <td>{{ empleado.nombre }} {{ empleado.apPaterno}} {{ empleado.apMaterno }} </td>
+                  <td> {{ empleado.rfc }} </td>
+                  <td> {{ empleado.turnoLaboral }} </td>
+                  <td> {{ empleado.nombreGym }} </td>
+                  <td> {{ empleado.email }} </td>
+                  <td> 
+                    <button mat-icon-button color="primary" routerLink="/admin/editar-colaborador/{{ empleado.idEmpleado }}">
+                        <mat-icon>edit</mat-icon>
+                      </button>    
+                    </td>
+                </tr>
+              </tbody>
+          </table>
+
+          <div style="text-align: right; margin-bottom: 50px;">
+            <button mat-icon-button color="primary" (click)="prevPage()">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
+
+            <button mat-icon-button color="primary" (click)="nextPage()" [disabled]="(empleados | listarEmpleados:page:search).length === 0">
+                <mat-icon>navigate_next</mat-icon>
+            </button>  
+          </div>
+
+    </div>
+  </div>
+
+  
+  
+  
