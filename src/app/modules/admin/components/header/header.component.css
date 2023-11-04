@@ -112,13 +112,23 @@ nav {
 
 #navbarNav {
     text-align: right;
-    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.img_logo {
+    max-height: 149px;
+}
+
+.active {
+    font-weight: bold;
+    text-decoration: 3px underline #FD9727;
 }
 
 @media (max-width: 991px) {
 	#prueba {
-		color: black;
+		color: rgb(37, 36, 36);
         font-size: medium;
+        
         margin: 0;
 	}
 
@@ -129,5 +139,13 @@ nav {
         background: white;
         margin: 0;
         height: auto;
+    }
+
+}
+
+@media (max-width: 360px){
+    .img_logo {
+        
+        width: 360px;
     }
 }
