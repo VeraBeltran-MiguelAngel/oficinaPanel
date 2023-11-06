@@ -14,7 +14,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   //variable que guarda el endpoint en el srver API: string = 'conf/';
-  API: string = 'conf/loginRole.php/';
+  //API: string = 'conf/loginRole.php/';
+  //admin@gmail.com
+  //admin123
+  API: string = 'https://olympus.arvispace.com/panelAdmin/conf/loginRole.php/';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 

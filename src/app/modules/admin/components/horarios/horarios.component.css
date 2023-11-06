@@ -1,0 +1,31 @@
+.horarios-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .horarios-table th, .horarios-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    width: 150px;
+  }
+  
+  .horarios-table th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  .horarios-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .horarios-table tr:hover {
+    background-color: #ddd;
+  }
+  
+  /* Estilo para la palabra "hasta" */
+  .horarios-table td:nth-child(3) {
+    font-weight: bold;
+    color: #007BFF; /* Color de enlace azul */
+  }
+  

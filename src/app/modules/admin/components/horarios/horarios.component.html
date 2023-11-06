@@ -1,0 +1,77 @@
+<!--<div class="col-sm-12">
+    <div formGroupName="horarios">
+        Asegúrate de que Angular Material esté configurado en tu proyecto 
+
+        <table style="margin: auto;">
+            <tr>
+                <th>Día</th>
+                <th>Hora Inicio</th>
+                <th></th>
+                <th>Hora Fin</th>
+            </tr>
+            <tr>
+                <td>Lunes</td>
+                <td>{{ valorJSONInicio }}</td>
+                <td>hasta</td>
+                <td>{{ valorJSONFin }}</td>
+            </tr>
+            <tr>
+                <td>Martes</td>
+                <td>{{valorJSONInicioM}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinM}}</td>
+            </tr>
+            <tr>
+                <td>Miercoles</td>
+                <td>{{valorJSONInicioMi}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinMi}}</td>
+            </tr>
+            <tr>
+                <td>Jueves</td>
+                <td>{{valorJSONInicioJ}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinJ}}</td>
+            </tr>
+            <tr>
+                <td>Viernes</td>
+                <td>{{valorJSONInicioV}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinV}}</td>
+            </tr>
+            <tr>
+                <td>Sábado</td>
+                <td>{{valorJSONInicioS}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinS}}</td>
+            </tr>
+            <tr>
+                <td>Domingo</td>
+                <td>{{valorJSONInicioD}}</td>
+                <td>hasta</td>
+                <td>{{valorJSONFinD}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>-->
+
+<table class="horarios-table">
+    <tr>
+      <th>Día</th>
+      <th>Hora de Inicio</th>
+      <th></th>
+      <th>Hora de Fin</th>
+    </tr>
+    <tr *ngFor="let dia of ['lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo']">
+      <td>{{ dia }}</td>
+      <td>{{ valorJSON['$.horarios.' + dia + '.horaInicio'] }}</td>
+      <td>hasta</td>
+      <td>{{ valorJSON['$.horarios.' + dia + '.horaFin'] }}</td>
+    </tr>
+  </table>
+  <div mat-dialog-actions fxLayoutAlign="center center">
+    <button  mat-button (click)="cerrarDialogo()" >Cerrar</button>
+</div>  
+  
+  

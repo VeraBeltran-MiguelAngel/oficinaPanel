@@ -1,0 +1,116 @@
+    <!--CONTENIDO PANTALLA ALTA DE UDUARIO-->
+    <div class="content_body">
+        <div class="content_margin">
+            <div class="title_page">
+                <h3>Alta de colaborador</h3>
+            </div>
+            <div class="form_data">
+                <form [formGroup]="form" (ngSubmit)="registrar()">
+                    
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                          <mat-label>Nombre</mat-label>
+                          <input type="text" matInput placeholder="Juan" autocomplete="off" formControlName="nombre" id="nombre" [errorStateMatcher]="matcher">
+                          <mat-error *ngIf="form.get('nombre')?.hasError('pattern') && !form.get('nombre')?.hasError('required')">
+                              <strong class="txt_msg">**Numeros no permitidos</strong>
+                          </mat-error>
+                          <mat-error *ngIf="form.get('nombre')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                        </mat-form-field>
+                          
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                          <mat-label>Apellido paterno</mat-label>
+                          <input type="text" matInput placeholder="Pérez" autocomplete="off" formControlName="apPaterno" id="apPaterno" [errorStateMatcher]="matcher">
+                          <mat-error *ngIf="form.get('apPaterno')?.hasError('pattern') && !form.get('apPaterno')?.hasError('required')">
+                            <strong class="txt_msg">**Numeros no permitidos</strong>
+                          </mat-error>
+                          <mat-error *ngIf="form.get('apPaterno')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                        </mat-form-field>
+                    
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                            <mat-label>Apellido materno</mat-label>
+                            <input type="text" placeholder="Sanchéz" matInput autocomplete="off" formControlName="apMaterno" id="apMaterno" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="form.get('apMaterno')?.hasError('pattern') && !form.get('apMaterno')?.hasError('required')">
+                              <strong class="txt_msg">**Numeros no permitidos</strong>
+                            </mat-error>
+                            <mat-error *ngIf="form.get('apMaterno')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                        </mat-form-field>
+                    
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                            <mat-label>RFC</mat-label>
+                            <input type="text" placeholder="RFC" matInput autocomplete="off" formControlName="rfc" id="rfc" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="form.get('rfc')?.hasError('pattern') && !form.get('rfc')?.hasError('required')">
+                              <strong class="txt_msg">**Formato no valido...</strong>
+                            </mat-error>
+                            <mat-error *ngIf="form.get('rfc')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                        </mat-form-field>
+
+                          <mat-form-field appearance="outline" class="inputs_properties">
+                            <mat-label>Sucursal</mat-label>
+                            <mat-select id="sucursal" formControlName="Gimnasio_idGimnasio" id="Gimnasio_idGimnasio" [errorStateMatcher]="matcher">
+                              <mat-option></mat-option>
+                              <mat-option *ngFor="let sucursal of sucursales" value="{{sucursal.idGimnasio}}">{{sucursal.nombreGym}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="form.get('Gimnasio_idGimnasio')?.hasError('required')">
+                              <strong class="txt_msg">**Campo requerido</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                          <mat-label>Área</mat-label>
+                          <mat-select id="area" formControlName="area" id="area" [errorStateMatcher]="matcher">
+                            <mat-option></mat-option>
+                            <mat-option value="1">Entrenamiento</mat-option>
+                            <mat-option value="2">Recepción</mat-option>
+                          </mat-select>
+                          <mat-error *ngIf="form.get('area')?.hasError('required')">
+                            <strong class="txt_msg">**Campo requerido</strong>
+                          </mat-error>
+                      </mat-form-field>
+                    
+                      <mat-form-field appearance="outline" class="inputs_properties">
+                        <mat-label>Turno laboral</mat-label>
+                        <mat-select id="turno" formControlName="turnoLaboral" id="turnoLaboral" [errorStateMatcher]="matcher">
+                          <mat-option></mat-option>
+                          <mat-option value="Matutino">Matutino</mat-option>
+                          <mat-option value="Vespertino">Vespertino</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="form.get('turnoLaboral')?.hasError('required')">
+                          <strong class="txt_msg">**Campo requerido</strong>
+                        </mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="inputs_properties">
+                        <mat-label>Salario</mat-label>
+                        <input type="text" placeholder="Salario" matInput autocomplete="off" formControlName="salario" id="salario" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="form.get('salario')?.hasError('pattern') && !form.get('salario')?.hasError('required')">
+                          <strong class="txt_msg">**Formato no valido...</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.get('salario')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" class="inputs_properties">
+                        <mat-label>Email</mat-label>
+                        <input type="email" placeholder="ejemplo@yahoo.com" matInput autocomplete="off" formControlName="email" id="email" [errorStateMatcher]="matcher">
+                        <mat-error *ngIf="form.get('email')?.hasError('pattern') && !form.get('email')?.hasError('required')">
+                          <strong class="txt_msg">**Formato no valido...</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.get('email')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                      </mat-form-field>  
+                    
+                        <mat-form-field appearance="outline" class="inputs_properties">
+                            <mat-label>Asignar contraseña</mat-label>
+                            <input matInput  matInput [type]="hide ? 'password' : 'text'" placeholder="Asignar contraseña" formControlName="pass" id="pass" [errorStateMatcher]="matcher">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="form.get('pass')?.hasError('minlength') && !form.get('pass')?.hasError('required')">
+                              <strong class="txt_msg">**Minimo 8 caracteres</strong>
+                            </mat-error>
+                            <mat-error *ngIf="form.get('pass')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
+                        </mat-form-field>
+                                   
+                    <button mat-raised-button id="btn_canelar" color="warn">Cancelar</button>
+                    <button type="submit" id="btn_guardar" mat-raised-button>Guardar registro</button>
+                </form>
+            </div>
+        </div>
+    </div>

@@ -43,6 +43,15 @@ import { MensajeEmergentesComponent } from './components/mensaje-emergentes/mens
 import { MembresiasListaComponent } from './components/membresias-lista/membresias-lista.component';
 import { MensajeEliminarComponent } from './components/mensaje-eliminar/mensaje-eliminar.component';
 import { MembresiasEditarComponent } from './components/membresias-editar/membresias-editar.component';
+import { AltaColaboradoresComponent } from './components/alta-colaboradores/alta-colaboradores.component';
+import { EditarColaboradorComponent } from './components/editar-colaborador/editar-colaborador.component';
+import { ListarEmpleadosPipe } from 'src/app/pipes/empleado/listar-empleados.pipe';
+import { SucursalListaComponent } from './components/sucursal-lista/sucursal-lista.component';
+import { SucursalAltaComponent } from './components/sucursal-alta/sucursal-alta.component';
+import { SucursalEditarComponent } from './components/sucursal-editar/sucursal-editar.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { HorariosComponent } from './components/horarios/horarios.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +65,13 @@ import { MembresiasEditarComponent } from './components/membresias-editar/membre
     MembresiasListaComponent,
     MensajeEliminarComponent,
     MembresiasEditarComponent,
+    AltaColaboradoresComponent,
+    EditarColaboradorComponent,
+    ListarEmpleadosPipe,
+    SucursalListaComponent,
+    SucursalAltaComponent,
+    SucursalEditarComponent,
+    HorariosComponent,
   ],
   imports: [
     CommonModule,
@@ -75,7 +91,8 @@ import { MembresiasEditarComponent } from './components/membresias-editar/membre
     FormsModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCheckboxModule
   ],
 })
 export class AdminModule {
