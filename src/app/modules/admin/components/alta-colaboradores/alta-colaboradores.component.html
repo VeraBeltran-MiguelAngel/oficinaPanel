@@ -108,7 +108,7 @@
                             <mat-error *ngIf="form.get('pass')?.hasError('required')"><strong class="txt_msg">**Campo requerido</strong></mat-error>
                         </mat-form-field>
                                    
-                    <button mat-raised-button id="btn_canelar" color="warn">Cancelar</button>
+                    <button routerLink="/admin/colaboradores" mat-raised-button id="btn_canelar" color="warn">Cancelar</button>
                     <button type="submit" id="btn_guardar" mat-raised-button>Guardar registro</button>
                 </form>
             </div>

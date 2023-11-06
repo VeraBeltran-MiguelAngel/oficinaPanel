@@ -58,15 +58,23 @@ export class AltaColaboradoresComponent {
     this.http.agregarEmpleado(this.form.value).subscribe({
       next: (resultData) => {
         console.log(resultData.msg);
+        //mensaje de error - generado apartir de la existencia previa del rfc en la bd
         if(resultData.msg == 'RfcExists'){
           this.toastr.error('El rfc ya existe.', 'Error!!!');
         }
+        //mensaje de error - generado apartir de la existencia previa del email en la bd
         if(resultData.msg == 'MailExists'){
           this.toastr.error('El correo ya existe.', 'Error!!!');
         }
+        //mensaje de insersion correcta
         if(resultData.msg == 'Success'){
           this.toastr.success('Empleado agregado correctamente.', 'Exíto!!!');
-          this.form.reset();  
+          //redireccionar despues de insertar
+          //this.router.navigateByUrl('/lista-colaboradores');
+          //marcar un formulario como no modificado o en su estado inicial.
+          this.form.markAsPristine(); 
+          //  marcar un control de formulario como no tocado, indicando que el usuario no ha interactuado con él.
+          this.form.markAsUntouched();
         }
               
       },
