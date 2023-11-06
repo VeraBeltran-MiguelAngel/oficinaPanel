@@ -8,6 +8,10 @@ import { MembresiasListaComponent } from './components/membresias-lista/membresi
 import { MembresiasEditarComponent } from './components/membresias-editar/membresias-editar.component';
 import { EditarColaboradorComponent } from './components/editar-colaborador/editar-colaborador.component';
 import { AltaColaboradoresComponent } from './components/alta-colaboradores/alta-colaboradores.component';
+import { SucursalListaComponent } from './components/sucursal-lista/sucursal-lista.component';
+import { SucursalAltaComponent } from './components/sucursal-alta/sucursal-alta.component';
+import { SucursalEditarComponent } from './components/sucursal-editar/sucursal-editar.component';
+import { HorariosComponent } from './components/horarios/horarios.component';
 
 const routes: Routes = [
   {
@@ -21,6 +25,10 @@ const routes: Routes = [
       { path: 'editarMembresias/:id', component: MembresiasEditarComponent},
       { path: 'editar-colaborador/:id', component: EditarColaboradorComponent},
       { path: 'alta-colaborador', component: AltaColaboradoresComponent},
+      { path: 'lista-sucursales', component: SucursalListaComponent},
+      { path: 'alta-sucursal', component: SucursalAltaComponent},
+      { path: 'editar-sucursal/:id', component: SucursalEditarComponent},
+      { path: 'horario/:id', component:HorariosComponent},
       { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
     ],
   },
