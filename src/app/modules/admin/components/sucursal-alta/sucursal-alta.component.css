@@ -1,173 +1,48 @@
 /* Agregar márgenes de 20px a los lados izquierdo y derecho sin afectar la parte superior e inferior */
 .mi-div-con-borde {
-    height: 750px; /* Altura */
-    background-color: #ffffff;
-    border: 1px solid #000;
-    color: #000000; /* Color del texto */
-    font-size: 18px; /* Tamaño de fuente */
-    border-radius: 20px;
-    font-family: Arial, sans-serif;
-  }
+  height: 750px; /* Altura */
+  background-color: #ffffff;
+  border: 1px solid #000;
+  color: #000000; /* Color del texto */
+  font-size: 18px; /* Tamaño de fuente */
+  border-radius: 20px;
+  font-family: Arial, sans-serif;
+}
 
 
-  /* Estilos para .inputs_properties */
-  .inputs_properties {
-    width: 270px;
-    padding-left: 15px;
-  }
-  
-  /* Estilos para .label-with-margin */
-  .label-with-margin {
-    margin-right: 30px;
-  }
-  
-  /* Estilos para .large-text */
-  .large-text {
-    font-size: 20px;
-  }
-  
-  /* Estilos para .responsive-div */
-  .responsive-div {
-    width: 100%; /* El div ocupa todo el ancho disponible */
-    height: 100%;
-    max-width: 1000px; /* Ancho máximo para evitar que se extienda demasiado en pantallas grandes */
-    max-height: 9000px;
-    margin: 0 auto; /* Centra el div horizontalmente en la pantalla */
-    padding: 20px; /* Agrega espaciado interno si es necesario */
-    /* Otros estilos personalizados para tu div */
-  }
-  
-  /* Estilos para .footer_component */
-  .footer_component {
-    position: relative;
-    left:0px;
-    bottom:0px;
-    width:100%;
-    margin-top: 280px;
-   }
+/* Estilos para .inputs_properties */
+.inputs_properties {
+  width: 270px;
+  padding-left: 15px;
+}
 
-   table {
-    margin: auto;
-    width: 85%; /* Puedes ajustar el ancho a tu preferencia */
-    border-collapse: collapse;
-    /*border: 1px solid #ddd;  Borde de la tabla */
-  }
-  
-  table th, table td {
-    padding: 10px;
-    text-align: center;
-   /* border: 1px solid #ddd; Borde de celdas */
-  }
-  
-  table th {
-    background-color: #dadada; /* Color de fondo para las cabeceras */
-  }
-  
-  /* Estilo para las celdas de la última columna (checkbox) */
-  table td:last-child {
-    text-align: center;
-  }
-  
-  /* Estilo para las filas pares */
-  table tr:nth-child(even) {
-    background-color: #f5f5f5; /* Cambia el color de fondo para las filas pares */
-  }
-  
-  /* Estilo para las celdas de tiempo (input[type="time"]) */
-  table input[type="time"] {
-    width: 130px; /* Ancho de los campos de tiempo */
-  }
-  
-  /* Estilo para los checkboxes (mat-checkbox) */
-  table mat-checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* Estilos para .label-with-margin */
+.label-with-margin {
+  margin-right: 30px;
+}
 
-  input[type="time"] {
-    border: none; /* Esto elimina el borde */
-    /* Opcional: ajusta otros estilos como el fondo y el texto */
-    background: transparent; /* Establece el fondo como transparente si es necesario */
-    color: #333; /* Establece el color del texto */
-    /* Agrega más estilos según tus preferencias */
-  }
-  
-  /* Estilos para pantallas medianas */
-  @media screen and (max-width: 1000px) {
-    .responsive-div {
-      max-width: 800px; /* Ajusta el ancho máximo para pantallas medianas */
-    }
-  
-    /* Estilos específicos para pantallas medianas */
-    .large-text {
-      margin-right: 8px; /* Reduce el margen para que los textos no se superpongan */
-    }
-    .inputs_properties {
-      width: 70%; /* Ocupa todo el ancho disponible para los campos de entrada */
-      margin-bottom: 10px; /* Agrega espacio entre los campos de entrada */
-    }
-    .mat-form-field {
-      width: 100%; /* Ocupa todo el ancho disponible para los campos de entrada en pantallas pequeñas */
-    }
-    .mat-label {
-      font-size: 18px; /* Reduce el tamaño de fuente de las etiquetas */
-    }
-    .mat-select {
-      width: 100%; /* Ocupa todo el ancho disponible para el select */
-    }
-    .mat-button {
-      margin: 0 10px; /* Agrega espacio entre los botones */
-    }
-    .textarea {
-      width: 100%; /* Ocupa todo el ancho disponible */
-      height: 100px; /* Establece una altura específica */
-    }
-  }
-  
-  /* Estilos para pantallas pequeñas */
-  @media screen and (max-width: 768px) {
-    .responsive-div {
-      max-width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
-    }
-    mat-radio-button {
-      width: 70%;
-    }
-  
-    /* Estilos específicos para pantallas pequeñas */
-    .large-text {
-      margin-right: 10px; /* Reduce el margen para que los textos no se superpongan */
-    }
-    .inputs_properties {
-      width: 80%; /* Ocupa todo el ancho disponible para los campos de entrada */
-      margin-bottom: 10px; /* Agrega espacio entre los campos de entrada */
-    }
-    .mat-form-field {
-      width: 80%; /* Ocupa todo el ancho disponible para los campos de entrada en pantallas pequeñas */
-    }
-    mat-label {
-      font-size: 14px; /* Reduce el tamaño de fuente de las etiquetas */
-    }
-    mat-select {
-      width: 80px;
-    }
-    .label {
-      font-size: 4px;
-    }
-    .mat-button {
-      margin: 0 10px; /* Agrega espacio entre los botones */
-    }
+/* Estilos para .large-text */
+.large-text {
+  font-size: 20px;
+}
 
-    .button {
-      margin-top: auto;
-      margin-right: 2000px;
-    }
- 
-    
-  }
-  
-  /* Etiqueta form*/
-  form {
-    margin: 40px 0;
-  }
-  
+/* Estilos para .responsive-div */
+.responsive-div {
+  width: 100%; /* El div ocupa todo el ancho disponible */
+  height: 100%;
+  max-width: 1000px; /* Ancho máximo para evitar que se extienda demasiado en pantallas grandes */
+  max-height: 9000px;
+  margin: 0 auto; /* Centra el div horizontalmente en la pantalla */
+  padding: 20px; /* Agrega espaciado interno si es necesario */
+  /* Otros estilos personalizados para tu div */
+}
+
+/* Estilos para .footer_component */
+.footer_component {
+  position: relative;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  margin-top: 280px;
+ }
+

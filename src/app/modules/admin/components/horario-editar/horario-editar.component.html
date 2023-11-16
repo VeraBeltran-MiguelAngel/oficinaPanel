@@ -1,0 +1,27 @@
+<!-- horario-editar.component.html -->
+<label style="margin: auto; display: block; text-align: center; font-size: 20px; font-weight: bold;">ACTUALIZA EL HORARIO DE TU GIMNASIO</label>
+<form [formGroup]="formularioHorarios">
+  <table>
+    <thead>
+      <tr>
+        <th>Día de la Semana</th>
+        <th>Hora de Entrada</th>
+        <th>Hora de Salida</th>
+      </tr>
+    </thead>
+    <tbody formArrayName="horarios">
+      <tr *ngFor="let horario of getHorariosControls(); let i = index" [formGroupName]="i">
+        <td *ngIf="horario.get('diaSemana') !== null">{{ horario.get('diaSemana')?.value }}</td>
+        <td><input type="time" formControlName="horaEntrada" placeholder="Hora Entrada"></td>
+        <td><input type="time" formControlName="horaSalida" placeholder="Hora Salida"></td>
+      </tr>
+    </tbody>
+  </table>
+
+<br/>
+<div style="margin: auto; display: block; text-align: center;">
+  <button style=" background-color: #4f9c1c; margin-right: 30px;" (click)="actualizar()">Actualizar</button>
+  <button style = "background-color: #000000;" (click)="cancelar()">Cancelar</button>
+</div>
+</form>
+<br/>
