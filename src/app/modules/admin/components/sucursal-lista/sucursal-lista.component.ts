@@ -6,6 +6,8 @@ import { horarioService } from 'src/app/service/horario.service';
 import { forkJoin } from 'rxjs';
 import { HorariosComponent } from '../horarios/horarios.component';
 import { gimnasio } from 'src/app/service/gimnasio';
+import { HorariosVistaComponent } from '../horarios-vista/horarios-vista.component';
+import { ListarSucursalesPipe } from 'src/app/pipes/sucursales/listar-sucursales.pipe';
 
 @Component({
   selector: 'app-sucursal-lista',
@@ -13,15 +15,22 @@ import { gimnasio } from 'src/app/service/gimnasio';
   styleUrls: ['./sucursal-lista.component.css']
 })
 export class SucursalListaComponent implements OnInit {
+  
   gimnasio: any;
   message: string = "";
   
+  idGimnasio: any;
+  hayHorarios: boolean = false;
+  public sucursales: any;
+  public page: number = 0;
+  public search: string = '';
+
   constructor(
     private gimnasioService: GimnasioService,
     public dialog: MatDialog,
   ){}
 
-  displayedColumns: string[] = ['title', 'c.p','estado','ciudad','colonia','calle','Numero_Exterior','Numero_Interior','telefono', 'tipo',  'alberca', 'ofertas', 'gimnasio', 'IDgimnasio', 'actions'];
+  displayedColumns: string[] = ['nombre','direccion','telefono', 'tipo',  'alberca', 'ofertas', 'gimnasio', 'IDgimnasio', 'actions', 'horario'];
 
 
   ngOnInit(): void {
@@ -32,7 +41,7 @@ export class SucursalListaComponent implements OnInit {
 
   borrarSucursal(idGimnasio: any) {
     console.log(idGimnasio);
-    this.dialog.open(MensajeEliminarComponent, {
+    this.dialog.open(MensajeEliminarComponent,{
       data: `¿Desea eliminar esta membresía?`,
     })
     .afterClosed()
@@ -54,9 +63,46 @@ export class SucursalListaComponent implements OnInit {
     });
   }
 
-  verHorario(idGimnasio: string): void {
-    const dialogRef = this.dialog.open(HorariosComponent, {
+ verHorario(idGimnasio: string): void {
+    const dialogRef = this.dialog.open(HorariosVistaComponent, {
+      width: '60%',
+      height: '90%',
       data: { idGimnasio: idGimnasio },
     });
   }
+
+  agregarHorario(idGimnasio: string): void {
+    const dialogRef = this.dialog.open(HorariosComponent, {
+      width: '60%',
+      height: '90%',
+      data: { idGimnasio: idGimnasio },
+    });
+  }
+
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if ( this.page > 0 )
+      this.page -= 5;
+  }
+
+  onSearchPokemon( search: string ) {
+    this.page = 0;
+    this.search = search;
+  }
+
+  pageNumber = 0; // Valor inicial de la página
+searchString = ''; // Valor inicial para la búsqueda
+
+// Método para cambiar la página
+changePage(newPage: number) {
+  this.pageNumber = newPage;
+}
+
+// Método para cambiar la cadena de búsqueda
+changeSearchString(newSearchString: string) {
+  this.searchString = newSearchString;
+}
 }

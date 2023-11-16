@@ -49,8 +49,11 @@ import { ListarEmpleadosPipe } from 'src/app/pipes/empleado/listar-empleados.pip
 import { SucursalListaComponent } from './components/sucursal-lista/sucursal-lista.component';
 import { SucursalAltaComponent } from './components/sucursal-alta/sucursal-alta.component';
 import { SucursalEditarComponent } from './components/sucursal-editar/sucursal-editar.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { HorariosComponent } from './components/horarios/horarios.component';
+import { HorariosVistaComponent } from './components/horarios-vista/horarios-vista.component';
+import { HorarioEditarComponent } from './components/horario-editar/horario-editar.component';
+
 
 
 @NgModule({
@@ -72,6 +75,8 @@ import { HorariosComponent } from './components/horarios/horarios.component';
     SucursalAltaComponent,
     SucursalEditarComponent,
     HorariosComponent,
+    HorariosVistaComponent,
+    HorarioEditarComponent
   ],
   imports: [
     CommonModule,

@@ -17,13 +17,14 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { ListarSucursalesPipe } from './pipes/sucursales/listar-sucursales.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ListarSucursalesPipe
   ],
   imports: [
     BrowserModule,
