@@ -1,8 +1,22 @@
 <!DOCTYPE html>
+<style>
+  .card {
+    margin-bottom: 20px; /* Añade un margen inferior de 20px a cada tarjeta */
+  }
+</style>
 <body>
   <div class="container mt-4">
     <h1 class="mb-3">Bienvenido {{ rol }}</h1>
     <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Sucursales</h4>
+            <p class="card-text">Configura la información de tu gimnasio</p>
+            <a class="btn btn-gym" routerLink="../lista-sucursales">Configurar</a>
+          </div>
+        </div>
+      </div>
       <div class="col-md-6">
         <div class="card">
           <div class="card-body">
@@ -17,9 +31,45 @@
           <div class="card-body">
             <h4 class="card-title">Colaboradores</h4>
             <p class="card-text">
-              Configura la informacion de tus colaboradores
+              Configura la información de tus colaboradores
             </p>
             <a class="btn btn-gym" routerLink="../colaboradores">Configurar</a>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Proveedores</h4>
+            <p class="card-text">
+              Configura la información de tus proveedores
+            </p>
+            <a class="btn btn-gym" routerLink="../lista-proveedor">Configurar</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Categoría</h4>
+            <p class="card-text">
+              Configura las categorías de tus productos
+            </p>
+            <a class="btn btn-gym" routerLink="../lista-categoria">Configurar</a>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Producto</h4>
+            <p class="card-text">
+              Configura la información de tus productos
+            </p>
+            <a class="btn btn-gym" routerLink="../lista-producto">Configurar</a>
           </div>
         </div>
       </div>

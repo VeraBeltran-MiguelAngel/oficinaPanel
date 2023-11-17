@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <h2 class="mb-3">Lista de productos</h2>
+
+    <div style="text-align: right; margin-bottom: 50px;">
+        <button mat-raised-button routerLink="../alta-producto" style="background-color: #fd9727; font-size: 16px; margin-right: 100px; "><mat-icon>add</mat-icon>AGREGAR PRODUCTO</button>
+      </div>
+
+    <div class="mb-3">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre del producto</mat-label>
+            <span matPrefix class="icon_search"><mat-icon>search</mat-icon></span>
+            <input matInput placeholder="Nombre del producto" #txtSearch (keyup)="onSearchPokemon( txtSearch.value )">
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Tamaño</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Estatus</th>
+                  <th scope="col">Categoría</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos | listarProducto: page: search">
+                  <td>{{ producto.nombre }} </td>
+                  <td>{{ getTamano(producto) }}</td>
+                  <td>{{ producto.descripcion}} </td>
+                  <td>{{ producto.precio }} </td>
+                  <td>{{ producto.cantidad }} </td>
+                  <td>{{ producto.estatus }} </td>
+                  <td>{{ producto.Categoria_idCategoria }} </td>
+                  <td> 
+                    <button mat-icon-button color="primary" routerLink="/admin/editar-producto/{{ producto.idProducto}}">
+                        <mat-icon>edit</mat-icon>
+                      </button>    
+                    </td>
+                </tr>
+              </tbody>
+          </table>
+          <div style="text-align: right; margin-bottom: 50px;">
+            <button mat-icon-button color="primary" (click)="prevPage()">
+              <mat-icon>navigate_before</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="nextPage()">
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+          </div>
+    </div>
+  </div>
+
+  
+  
+  

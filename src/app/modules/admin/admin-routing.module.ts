@@ -12,6 +12,15 @@ import { SucursalListaComponent } from './components/sucursal-lista/sucursal-lis
 import { SucursalAltaComponent } from './components/sucursal-alta/sucursal-alta.component';
 import { SucursalEditarComponent } from './components/sucursal-editar/sucursal-editar.component';
 import { HorariosComponent } from './components/horarios/horarios.component';
+import { ListaProveedorComponent } from './components/lista-proveedor/lista-proveedor.component';
+import { AltaProveedorComponent } from './components/alta-proveedor/alta-proveedor.component';
+import { EditarProveedorComponent } from './components/editar-proveedor/editar-proveedor.component';
+import { ListaCategoriaComponent } from './components/lista-categoria/lista-categoria.component';
+import { AltaCategoriaComponent } from './components/alta-categoria/alta-categoria.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
+import { ListaProductoComponent } from './components/lista-producto/lista-producto.component';
+import { AltaProductoComponent } from './components/alta-producto/alta-producto.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 
 const routes: Routes = [
   {
@@ -28,7 +37,15 @@ const routes: Routes = [
       { path: 'lista-sucursales', component: SucursalListaComponent},
       { path: 'alta-sucursal', component: SucursalAltaComponent},
       { path: 'editar-sucursal/:id', component: SucursalEditarComponent},
-      { path: 'horario/:id', component:HorariosComponent},
+      { path: 'lista-proveedor', component:ListaProveedorComponent},
+      { path: 'alta-proveedor', component:AltaProveedorComponent},
+      { path: 'editar-proveedor/:id', component:EditarProveedorComponent},
+      { path: 'lista-categoria', component:ListaCategoriaComponent},
+      { path: 'alta-categoria', component:AltaCategoriaComponent},
+      { path: 'editar-categoria/:id', component:EditarCategoriaComponent},
+      { path: 'lista-producto', component:ListaProductoComponent},
+      { path: 'alta-producto', component:AltaProductoComponent},
+      { path: 'editar-producto/:id', component:EditarProductoComponent},
       { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
     ],
   },

@@ -1,0 +1,69 @@
+<br/><br/>
+<mat-label class="large-text" style="font-family: Arial; font-size: 30px;margin-left: 150px;">Proveedores:</mat-label>
+<br/>
+<br/>
+<form [formGroup]="formularioProveedor">
+   <div class="mi-div-con-borde responsive-div">
+      <div style="color:red">{{message}}</div>
+      <br/>
+      <div class="row">
+         <div class="col-sm-6">
+            <p>
+               <label for="nombre" class="large-text" style="margin-right: 88px;margin-left: 45px;">Nombre:</label>
+               <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
+                  <mat-label>Nombre</mat-label>
+                  <input type="text" matInput placeholder="Juan" autocomplete="off" id="nombre" formControlName="nombre">
+                  <mat-error *ngIf="formularioProveedor.get('nombre')?.hasError('pattern') && !formularioProveedor.get('apPaterno')?.hasError('required')">
+                     <strong class="txt_msg">**Formato no valido...</strong>
+                  </mat-error>
+               </mat-form-field>
+            </p>
+            <p>
+               <label for="apPaterno" class="large-text" style="margin-right: 12px;margin-left: 45px;">Apellido paterno:</label>
+               <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
+                  <mat-label>Apellido paterno</mat-label>
+                  <input type="text" placeholder="Rojas" matInput autocomplete="off" id="apPaterno" formControlName="apPaterno">
+                  <mat-error *ngIf="formularioProveedor.get('apPaterno')?.hasError('pattern') && !formularioProveedor.get('apPaterno')?.hasError('required')">
+                     <strong class="txt_msg">**Formato no valido...</strong>
+                  </mat-error>
+               </mat-form-field>
+            </p>
+            <p>
+               <label for="apMaterno" class="large-text" style="margin-right: 8px;margin-left: 45px;">Apellido materno:</label>
+               <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
+                  <mat-label>Apellido materno</mat-label>
+                  <input type="text" placeholder="Torres" matInput autocomplete="off" id="apMaterno" formControlName="apMaterno">
+                  <mat-error *ngIf="formularioProveedor.get('apMaterno')?.hasError('pattern') && !formularioProveedor.get('apMaterno')?.hasError('required')">
+                     <strong class="txt_msg">**Formato no valido...</strong>
+                  </mat-error>
+               </mat-form-field>
+            </p>
+            <br/>
+         </div>
+         <div class="col-sm-6">
+            <p>
+               <label for="telefono" class="large-text" style="margin-right: 86px;margin-left: 45px;">Teléfono:</label>
+               <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
+                  <mat-label>Teléfono</mat-label>
+                  <input type="text" placeholder="2222222222" matInput autocomplete="off" id="telefono" formControlName="telefono">
+                  <mat-error *ngIf="formularioProveedor.get('telefono')?.hasError('pattern') && !formularioProveedor.get('telefono')?.hasError('required')">
+							<strong class="txt_msg">** Formato no válido...</strong>
+						</mat-error>
+               </mat-form-field>
+            </p>
+            <p>
+               <label for="razonSocial" class="large-text" style="margin-right: 48px;margin-left: 45px;">Razón social:</label>
+               <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
+                  <mat-label>Razón social</mat-label>
+                  <input type="text" placeholder="Suplementos S.A de C.V" matInput autocomplete="off" id="razonSocial" formControlName="razonSocial">
+               </mat-form-field>
+            </p>
+         </div>
+      </div>
+      <div style="display: flex; justify-content: center;">
+         <button mat-stroked-button type="submit" (click)="actualizar()" style="background-color: #fd9727; font-size: 20px; margin-top: 17px; height: 40px; margin-right: 90px;">Aceptar</button>
+         <button mat-stroked-button (click)="cancelar()" style="background-color: #fd9727; font-size: 20px; margin-top: 17px; height: 40px;">Cancelar</button>
+      </div>
+   </div>
+</form>
+<br/><br/><br/><br/>

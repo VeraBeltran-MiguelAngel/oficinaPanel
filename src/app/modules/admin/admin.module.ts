@@ -53,6 +53,18 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { HorariosComponent } from './components/horarios/horarios.component';
 import { HorariosVistaComponent } from './components/horarios-vista/horarios-vista.component';
 import { HorarioEditarComponent } from './components/horario-editar/horario-editar.component';
+import { AltaProveedorComponent } from './components/alta-proveedor/alta-proveedor.component';
+import { ListaProveedorComponent } from './components/lista-proveedor/lista-proveedor.component';
+import { ListaProveedorPipe } from 'src/app/pipes/proveedor/lista-proveedor.pipe';
+import { EditarProveedorComponent } from './components/editar-proveedor/editar-proveedor.component';
+import { ListaCategoriaComponent } from './components/lista-categoria/lista-categoria.component';
+import { AltaCategoriaComponent } from './components/alta-categoria/alta-categoria.component';
+import { EditarCategoriaComponent } from './components/editar-categoria/editar-categoria.component';
+import { ListarCategoriaPipe } from 'src/app/pipes/categoria/listar-categoria.pipe';
+import { AltaProductoComponent } from './components/alta-producto/alta-producto.component';
+import { ListaProductoComponent } from './components/lista-producto/lista-producto.component';
+import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { ListarProductoPipe } from 'src/app/pipes/productos/listar-producto.pipe';
 
 
 
@@ -76,7 +88,19 @@ import { HorarioEditarComponent } from './components/horario-editar/horario-edit
     SucursalEditarComponent,
     HorariosComponent,
     HorariosVistaComponent,
-    HorarioEditarComponent
+    HorarioEditarComponent,
+    AltaProveedorComponent,
+    ListaProveedorComponent,
+    ListaProveedorPipe,
+    EditarProveedorComponent,
+    ListaCategoriaComponent,
+    AltaCategoriaComponent,
+    EditarCategoriaComponent,
+    ListarCategoriaPipe,
+    AltaProductoComponent,
+    ListaProductoComponent,
+    EditarProductoComponent,
+    ListarProductoPipe
   ],
   imports: [
     CommonModule,
