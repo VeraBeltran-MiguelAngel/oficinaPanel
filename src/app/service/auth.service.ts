@@ -17,7 +17,8 @@ export class AuthService {
   //API: string = 'conf/loginRole.php/';
   //admin@gmail.com
   //admin123
-  API: string = 'http://localhost/plan/conexion.php'
+
+  API: string = 'https://olympus.arvispace.com/panelAdmin/conf/loginRolev2.php/';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
