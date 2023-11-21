@@ -8,7 +8,7 @@ import { franquicia } from './franquicia';
   providedIn: 'root'
 })
 export class franquiciaService {
-  API: string = 'http://localhost/plan/franquicia.php'
+  API: string = 'https://olympus.arvispace.com/conPrincipal/franquicia.php'
   constructor( private clienteHttp:HttpClient){}
 
   obternerFran(){

@@ -11,7 +11,7 @@ export class ListarSucursalesPipe implements PipeTransform {
     if ( search.length === 0 )
     return sucursales.slice(page, page + 5);
   
-  const filteredPokemons = sucursales.filter( sucursales => sucursales.nombreGym.toLowerCase().includes( search ) );
+  const filteredPokemons = sucursales.filter( gimnasio => gimnasio.nombreGym.toLowerCase().includes( search ) );
   return filteredPokemons.slice(page, page + 5);
   }
 

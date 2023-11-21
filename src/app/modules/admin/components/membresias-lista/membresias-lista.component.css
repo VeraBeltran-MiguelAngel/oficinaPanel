@@ -23,4 +23,6 @@ table {
   }
   
   /* Continúa con las demás columnas según sea necesario */
-  
+  .example-full-width {
+    width: 100%;
+  }

@@ -30,7 +30,6 @@ export class AltaProductoComponent {
       tamaño: ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
-      cantidad: ['', Validators.required],
       estatus: ['', Validators.required],
       Categoria_idCategoria: ['', Validators.required]
     });

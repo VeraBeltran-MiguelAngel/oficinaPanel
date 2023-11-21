@@ -20,7 +20,6 @@
                   <th scope="col">Tamaño</th>
                   <th scope="col">Descripción</th>
                   <th scope="col">Precio</th>
-                  <th scope="col">Cantidad</th>
                   <th scope="col">Estatus</th>
                   <th scope="col">Categoría</th>
                 </tr>
@@ -31,9 +30,10 @@
                   <td>{{ getTamano(producto) }}</td>
                   <td>{{ producto.descripcion}} </td>
                   <td>{{ producto.precio }} </td>
-                  <td>{{ producto.cantidad }} </td>
-                  <td>{{ producto.estatus }} </td>
-                  <td>{{ producto.Categoria_idCategoria }} </td>
+                  <td>
+                    {{ producto.estatus === '1' ? 'Activo' : 'Inactivo' }}
+                  </td>                 
+                  <td>{{ producto.Categoria_idCategoria }}</td>
                   <td> 
                     <button mat-icon-button color="primary" routerLink="/admin/editar-producto/{{ producto.idProducto}}">
                         <mat-icon>edit</mat-icon>

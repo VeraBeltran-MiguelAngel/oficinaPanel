@@ -6,6 +6,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { plan } from 'src/app/service/plan';
 import { PlanService } from 'src/app/service/plan.service';
 import { MensajeEliminarComponent } from '../mensaje-eliminar/mensaje-eliminar.component';
+import { GimnasioService } from 'src/app/service/gimnasio.service';
 
 
 @Component({
@@ -16,16 +17,20 @@ import { MensajeEliminarComponent } from '../mensaje-eliminar/mensaje-eliminar.c
 export class MembresiasListaComponent implements OnInit{
   plan: any;
   message: string = "";
+  public sucursales: any;
+  public page: number = 0;
+  public search: string = '';
 
   constructor(
     private planService:PlanService,
+    private gimnasioService:GimnasioService,
     private router: Router,
     private route: ActivatedRoute,
     private cd: ChangeDetectorRef,
     public dialog: MatDialog
   ){}
 
-  displayedColumns: string[] = ['id','title','trainer', 'price', 'duration', 'details','cancha','alberca','ofertas','gimnasio','IDgimnasio','actions'];
+  displayedColumns: string[] = ['title', 'details','price','duration', 'trainer','cancha','alberca','ofertas','gimnasio','IDgimnasio','actions'];
 
   ngOnInit(): void {
     this.planService.obternerPlan().subscribe(respuesta=>{console.log(respuesta)
@@ -59,6 +64,22 @@ export class MembresiasListaComponent implements OnInit{
         }
       });
    }
+
+
+   
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if ( this.page > 0 )
+      this.page -= 5;
+  }
+
+  onSearchPokemon( search: string ) {
+    this.page = 0;
+    this.search = search.toLowerCase();
+  }
 }
 
 

@@ -1,17 +1,22 @@
-
-<br/><br/>
-
-<div style="display: flex; align-items: center; justify-content: space-between;">
-	<h5 style="margin-left: 70px;">Sucursales</h5>
+<div class="container mt-4">
+<h2 class="mb-3">Sucursales</h2>
+<div style="text-align: right; margin-bottom: 50px;">
 	<button mat-raised-button routerLink="/admin/alta-sucursal" style="background-color: #fd9727; font-size: 16px; margin-right: 100px;">
     <mat-icon>add</mat-icon> AGREGAR SUCURSAL
   </button>
 </div>
-<br/>
 <div style="margin-left: 70px;color:red;font-size: 20px;">{{message}}</div>
+<div class="mb-3">
+	<mat-form-field class="example-full-width">
+		<mat-label>Nombre de la sucursal</mat-label>
+		<span matPrefix class="icon_search"><mat-icon>search</mat-icon></span>
+		<input matInput placeholder="Nombre de la sucursal" #txtSearch (keyup)="onSearchPokemon( txtSearch.value )">
+	  </mat-form-field>
+</div>
+
 <form>
-	<div style="width: 90%; margin-left: 70px" class="table-container">
-		<table mat-table  [dataSource]="gimnasio">
+	<div  class="table-container">
+		<table mat-table  [dataSource]="gimnasio | listarSucursales: page: search">
 			<!-- Título Column -->
 			<ng-container matColumnDef="nombre">
 				<th mat-header-cell *matHeaderCellDef>Nombre</th>
@@ -101,6 +106,14 @@
 			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 			<tr mat-row *matRowDef="let item; columns: displayedColumns; let i = index"></tr>
 		</table>
+		<div style="text-align: right; margin-bottom: 50px;">
+            <button mat-icon-button color="primary" (click)="prevPage()">
+              <mat-icon>navigate_before</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="nextPage()">
+              <mat-icon>navigate_next</mat-icon>
+            </button>
+          </div>
 		<!--<div style="text-align: right; margin-bottom: 50px;">
             <button mat-icon-button color="primary" (click)="prevPage()">
                 <mat-icon>navigate_before</mat-icon>
@@ -113,3 +126,4 @@
 	</div>
 </form>
 <br/>
+</div>
