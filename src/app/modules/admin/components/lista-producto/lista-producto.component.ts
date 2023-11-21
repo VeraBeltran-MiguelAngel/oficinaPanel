@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from 'src/app/service/producto.service';
+import { CategoriaService } from 'src/app/service/categoria.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ListaProductoComponent implements OnInit {
   public productos: any;
   public page: number = 0;
   public search: string = '';
-  constructor(private productoService: ProductoService){}
+  constructor(private productoService: ProductoService, private categoriaService: CategoriaService){}
 
   ngOnInit():void{
     this.productoService.obternerProducto().subscribe({
@@ -22,6 +23,16 @@ export class ListaProductoComponent implements OnInit {
     })
   }
 
+  getCategoria(idCategoria: number) {
+    this.categoriaService.consultarCategoria(idCategoria).subscribe((categoria) => {
+      return categoria.nombre; // Retorna el nombre de la categoría
+    });
+  }  
+
+  getCategoria1(idCategoria: string): number {
+    return parseInt(idCategoria, 10); // Convertir el string a número
+  }
+  
   
 getTamano(producto: any): string {
   return producto && producto.tamaño ? producto.tamaño : ''; // Verifica si la propiedad existe y la devuelve, o devuelve una cadena vacía si no existe

@@ -1,7 +1,7 @@
 /* Estilos para el contenedor de la tabla */
 .table-container {
   overflow-x: auto; /* Agrega una barra de desplazamiento horizontal si es necesario */
-  max-width: 90%; /* Evita que la tabla se desborde del contenedor */
+  max-width: 100%; /* Evita que la tabla se desborde del contenedor */
 }
 
 /* Estilos para la tabla */
@@ -18,3 +18,6 @@ th, td {
 }
 
 /* Estilos adicionales según sea necesario */
+.example-full-width {
+  width: 100%;
+}

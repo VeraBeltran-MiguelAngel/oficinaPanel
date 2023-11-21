@@ -43,7 +43,6 @@ export class EditarProductoComponent {
           tamaño:respuesta [0]['tamaño'],
           descripcion:respuesta [0]['descripcion'],
           precio:respuesta [0]['precio'],
-          cantidad:respuesta [0]['cantidad'],
           estatus:respuesta [0]['estatus'],
           Categoria_idCategoria:respuesta [0]['Categoria_idCategoria']
         });
@@ -57,7 +56,6 @@ export class EditarProductoComponent {
       tamaño: ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
-      cantidad: ['', Validators.required],
       estatus: ['', Validators.required],
       Categoria_idCategoria: ['', Validators.required]
     });

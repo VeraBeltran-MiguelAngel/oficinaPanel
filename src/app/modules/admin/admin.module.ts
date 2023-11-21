@@ -65,7 +65,8 @@ import { AltaProductoComponent } from './components/alta-producto/alta-producto.
 import { ListaProductoComponent } from './components/lista-producto/lista-producto.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 import { ListarProductoPipe } from 'src/app/pipes/productos/listar-producto.pipe';
-
+import { ListarSucursalesPipe } from 'src/app/pipes/sucursales/listar-sucursales.pipe';
+import { ListarMembresiaPipe } from 'src/app/pipes/membresias/lista-proveedor.pipe';
 
 
 @NgModule({
@@ -100,7 +101,9 @@ import { ListarProductoPipe } from 'src/app/pipes/productos/listar-producto.pipe
     AltaProductoComponent,
     ListaProductoComponent,
     EditarProductoComponent,
-    ListarProductoPipe
+    ListarProductoPipe,
+    ListarSucursalesPipe,
+    ListarMembresiaPipe
   ],
   imports: [
     CommonModule,

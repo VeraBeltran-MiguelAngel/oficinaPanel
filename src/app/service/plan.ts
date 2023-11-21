@@ -1,7 +1,7 @@
 export class plan{
     idMem!:string;
     titulo!:string;
-    detalle!:string;
+    detalles!:string;
     entrenador!:string;
     ofertas!:string;
     duracion!:string;

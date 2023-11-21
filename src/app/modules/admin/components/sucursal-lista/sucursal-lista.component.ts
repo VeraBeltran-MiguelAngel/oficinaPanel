@@ -90,7 +90,7 @@ export class SucursalListaComponent implements OnInit {
 
   onSearchPokemon( search: string ) {
     this.page = 0;
-    this.search = search;
+    this.search = search.toLowerCase();
   }
 
   pageNumber = 0; // Valor inicial de la página

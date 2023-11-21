@@ -1,21 +1,23 @@
-<br/><br/>
-<div style="display: flex; align-items: center; justify-content: space-between;">
-    <h2 style="margin-left: 70px;">MEMBRESÍAS DISPONIBLES</h2>
+<div class="container mt-4">
+  <h2 class="mb-3">MEMBRESÍAS DISPONIBLES</h2>
+<div style="text-align: right; margin-bottom: 50px;">
     <button mat-raised-button routerLink="/admin/membresias" style="background-color: #fd9727; font-size: 16px; margin-right: 100px; "><mat-icon>add</mat-icon>AGREGAR MEMBRESÍAS</button>
   </div>
   <br/>
   <div style="margin-left: 70px;color:red;font-size: 20px;">{{message}}</div>
+
+  <div class="mb-3">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre de la membresia</mat-label>
+      <span matPrefix class="icon_search"><mat-icon>search</mat-icon></span>
+      <input matInput placeholder="Nombre de la membresia" #txtSearch (keyup)="onSearchPokemon( txtSearch.value )">
+      </mat-form-field>
+  </div>
+
   <form >
-    <div style="width: 90%;margin-left: 70px" class="table-container">
-    <table mat-table [dataSource]="plan" >
-   
-  
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let item">{{ item.idMem }}</td>
-      </ng-container>
-  
+    <div  class="table-container">
+    <table mat-table [dataSource]="plan | listarMembresia: page: search " >
+
       <!-- Título Column -->
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Título</th>
@@ -86,11 +88,18 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let item; columns: displayedColumns; let i = index"></tr>
     </table>
-    
+    <div style="text-align: right; margin-bottom: 50px;">
+      <button mat-icon-button color="primary" (click)="prevPage()">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="nextPage()">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
   </div>
   </form>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
+<br/><br/><br/><br/>
+</div>
   
   
   

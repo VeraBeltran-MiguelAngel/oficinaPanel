@@ -25,7 +25,9 @@
                 <tr *ngFor="let categoria of categorias | listarCategoria: page: search">
                   <td>{{ categoria.nombre }} </td>
                   <td>{{ categoria.descripcion }} </td>
-                  <td>{{ categoria.estatus }} </td>
+                  <td>
+                    {{ categoria.estatus === '1' ? 'Activo' : 'Inactivo' }}
+                  </td> 
                   <td>{{ categoria.fechaCreacion }} </td>
                   <td> 
                     <button mat-icon-button color="primary" routerLink="/admin/editar-categoria/{{ categoria.idCategoria}}">
