@@ -67,6 +67,8 @@ import { EditarProductoComponent } from './components/editar-producto/editar-pro
 import { ListarProductoPipe } from 'src/app/pipes/productos/listar-producto.pipe';
 import { ListarSucursalesPipe } from 'src/app/pipes/sucursales/listar-sucursales.pipe';
 import { ListarMembresiaPipe } from 'src/app/pipes/membresias/lista-proveedor.pipe';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-cargando.component';
 
 
 @NgModule({
@@ -103,7 +105,9 @@ import { ListarMembresiaPipe } from 'src/app/pipes/membresias/lista-proveedor.pi
     EditarProductoComponent,
     ListarProductoPipe,
     ListarSucursalesPipe,
-    ListarMembresiaPipe
+    ListarMembresiaPipe,
+    NotificacionesComponent,
+    MensajeCargandoComponent
   ],
   imports: [
     CommonModule,
