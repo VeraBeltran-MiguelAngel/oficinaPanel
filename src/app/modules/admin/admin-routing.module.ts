@@ -21,6 +21,7 @@ import { EditarCategoriaComponent } from './components/editar-categoria/editar-c
 import { ListaProductoComponent } from './components/lista-producto/lista-producto.component';
 import { AltaProductoComponent } from './components/alta-producto/alta-producto.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,7 @@ const routes: Routes = [
       { path: 'lista-producto', component:ListaProductoComponent},
       { path: 'alta-producto', component:AltaProductoComponent},
       { path: 'editar-producto/:id', component:EditarProductoComponent},
+      { path: 'notificaciones', component:NotificacionesComponent},
       { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
     ],
   },
