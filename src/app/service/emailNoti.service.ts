@@ -7,9 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class notificaciones {
   // API: string = 'http://localhost/EnviarMail/nuevaContra.php/';
-  API: string ='http://localhost/pruebamail/EnviarMail/enviarNtificacion.php';
+  API: string ='http://localhost/pruebamail/EnviarMail/enviarNotificacion.php';
   APITra: string ='http://localhost/pruebamail/EnviarMail/enviarNotificacionTrabajador.php';
   //para guardar los headers que manda el API
+  /*API: string = 'https://olympus.arvispace.com/puntoDeVenta/EnviarMail/enviarNotificacion.php/';
+  APITra: string = 'https://olympus.arvispace.com/puntoDeVenta/EnviarMail/enviarNotificacionTrabajador.php';*/ 
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private clienteHttp: HttpClient) {}
@@ -24,7 +26,7 @@ export class notificaciones {
     formData.append('nombre', nombre);
     formData.append('texto', texto);
     formData.append('archivo', archivo);
-    return this.clienteHttp.post(this.API + '?enviar', formData);
+    return this.clienteHttp.post(this.API + '?enviarEmail', formData);
   }
 
   enviarMailTrabajadores(nombre: string, texto: string, archivo: File): Observable<any> {
@@ -32,6 +34,6 @@ export class notificaciones {
     formData.append('nombre', nombre);
     formData.append('texto', texto);
     formData.append('archivo', archivo);
-    return this.clienteHttp.post(this.APITra + '?enviarTrabajadores', formData);
+    return this.clienteHttp.post(this.APITra + '?enviarEmailConAdjunto', formData);
   }
 }

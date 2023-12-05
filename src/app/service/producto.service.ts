@@ -8,7 +8,8 @@ import { producto } from './producto';
 })
 export class ProductoService {
 
-  API: string = 'http://localhost/plan/producto.php';
+  // API: string = 'http://localhost/plan/producto.php';
+  API: string = 'https://olympus.arvispace.com/conPrincipal/producto.php'
   constructor(private clienteHttp:HttpClient) {
   }
 
