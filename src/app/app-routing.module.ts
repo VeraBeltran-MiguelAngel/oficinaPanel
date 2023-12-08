@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { authGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { hasRoleGuard } from './guards/has-role.guard';
 
 
 const routes: Routes = [
@@ -12,7 +13,10 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   {
     path: 'admin',
-    canActivate: [authGuard],
+    canActivate: [authGuard, hasRoleGuard],
+    data: {
+      rol: 'SuperAdmin',
+    },
     loadChildren: () =>
       import('./modules/admin/admin.module').then((m) => m.AdminModule),
   },

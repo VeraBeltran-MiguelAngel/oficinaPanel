@@ -37,8 +37,19 @@ export class AuthService {
     localStorage.setItem('userData', userData);
   }
 
-  getUserData(): string | null {
-    return localStorage.getItem('userData');
+  //este metodo devuelve la info del usuario en un json ya no en una cadena
+  getUserData(): any | null {
+    const localData = localStorage.getItem('userData');
+    if (localData != null) {
+      return JSON.parse(localData);
+    }
+    return null;
+  }
+
+  getRol(): string {
+    this.usuarioRegistrado = this.getUserData();
+    this.rol = this.usuarioRegistrado[0].rol;
+    return this.rol;
   }
 
   isLoggedIn() {
