@@ -80,7 +80,7 @@ export class EditarProductoComponent {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-producto');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
   actualizar(){

@@ -18,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 import {
   FaIconLibrary,
   FontAwesomeModule,
@@ -69,6 +70,7 @@ import { ListarSucursalesPipe } from 'src/app/pipes/sucursales/listar-sucursales
 import { ListarMembresiaPipe } from 'src/app/pipes/membresias/lista-proveedor.pipe';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-cargando.component';
+import { ProductManagementComponent } from './components/productManagement/productManagement.component';
 
 
 @NgModule({
@@ -107,7 +109,8 @@ import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-
     ListarSucursalesPipe,
     ListarMembresiaPipe,
     NotificacionesComponent,
-    MensajeCargandoComponent
+    MensajeCargandoComponent,
+    ProductManagementComponent
   ],
   imports: [
     CommonModule,
@@ -128,7 +131,8 @@ import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule, // tabs de material (pestañas)
   ],
 })
 export class AdminModule {

@@ -24,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })], //sin useHash no sirve la navegacion por link
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

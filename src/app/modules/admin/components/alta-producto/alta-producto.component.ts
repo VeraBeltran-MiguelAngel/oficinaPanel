@@ -50,7 +50,7 @@ export class AltaProductoComponent {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-producto');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
   enviar(): any {

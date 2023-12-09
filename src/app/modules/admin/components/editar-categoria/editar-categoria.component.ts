@@ -67,7 +67,7 @@ export class EditarCategoriaComponent {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-categoria');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
   actualizar(){

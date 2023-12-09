@@ -36,7 +36,7 @@ export class AltaCategoriaComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-categoria');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
   enviar(): any {

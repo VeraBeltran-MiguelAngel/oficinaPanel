@@ -43,7 +43,7 @@ export class AltaProveedorComponent {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-proveedor');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
   enviar(): any {

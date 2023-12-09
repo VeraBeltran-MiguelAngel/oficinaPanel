@@ -53,7 +53,7 @@ export class EditarProveedorComponent {
   }
 
   cancelar() {
-    this.router.navigateByUrl('/admin/lista-proveedor');
+    this.router.navigateByUrl('/admin/gestion-productos');
   }
 
     
