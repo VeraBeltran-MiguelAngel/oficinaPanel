@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { proveedor } from 'src/app/service/proveedor';
+import { proveedor } from 'src/app/models/proveedor';
 
 @Pipe({
   name: 'listarProveedor'

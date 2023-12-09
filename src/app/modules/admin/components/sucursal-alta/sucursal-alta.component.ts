@@ -7,7 +7,7 @@ import { franquiciaService } from 'src/app/service/franquicia.service';
 import { ErrorStateMatcher} from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { gimnasio } from 'src/app/service/gimnasio';
+import { gimnasio } from 'src/app/models/gimnasio';
 import { MensajeEmergentesComponent } from '../mensaje-emergentes/mensaje-emergentes.component';
 import { AbstractControl } from '@angular/forms';
 

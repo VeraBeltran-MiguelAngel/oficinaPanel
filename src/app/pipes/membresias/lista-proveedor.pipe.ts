@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { plan } from 'src/app/service/plan';
+import { plan } from 'src/app/models/plan';
 
 @Pipe({
   name: 'listarMembresia'

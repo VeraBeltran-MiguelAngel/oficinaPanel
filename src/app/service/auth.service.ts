@@ -6,7 +6,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 //modelo usuarios
-import { User } from './User';
+import { User } from '../models/User';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({

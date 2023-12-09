@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { listaEmpleados } from 'src/app/service/empleado';
+import { listaEmpleados } from 'src/app/models/empleado';
 
 @Pipe({
   name: 'listarEmpleados'

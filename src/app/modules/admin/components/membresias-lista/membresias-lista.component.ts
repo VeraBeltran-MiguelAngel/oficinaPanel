@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
-import { plan } from 'src/app/service/plan';
+import { plan } from 'src/app/models/plan';
 import { PlanService } from 'src/app/service/plan.service';
 import { MensajeEliminarComponent } from '../mensaje-eliminar/mensaje-eliminar.component';
 import { GimnasioService } from 'src/app/service/gimnasio.service';

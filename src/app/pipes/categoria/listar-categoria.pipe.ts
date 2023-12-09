@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { categoria } from 'src/app/service/categoria';
+import { categoria } from 'src/app/models/categoria';
 
 @Pipe({
   name: 'listarCategoria'

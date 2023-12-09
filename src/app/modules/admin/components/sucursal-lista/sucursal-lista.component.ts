@@ -5,7 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { horarioService } from 'src/app/service/horario.service';
 import { forkJoin } from 'rxjs';
 import { HorariosComponent } from '../horarios/horarios.component';
-import { gimnasio } from 'src/app/service/gimnasio';
+import { gimnasio } from 'src/app/models/gimnasio';
 import { HorariosVistaComponent } from '../horarios-vista/horarios-vista.component';
 import { ListarSucursalesPipe } from 'src/app/pipes/sucursales/listar-sucursales.pipe';
 

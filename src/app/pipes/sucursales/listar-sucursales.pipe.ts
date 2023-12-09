@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { gimnasio } from 'src/app/service/gimnasio';
+import { gimnasio } from 'src/app/models/gimnasio';
 
 @Pipe({
   name: 'listarSucursales'
