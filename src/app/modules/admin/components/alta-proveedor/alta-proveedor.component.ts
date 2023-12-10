@@ -60,7 +60,7 @@ export class AltaProveedorComponent {
             .afterClosed()
             .subscribe((cerrarDialogo: Boolean) => {
               if (cerrarDialogo) {
-                this.router.navigateByUrl('/admin/lista-proveedor');
+                this.router.navigateByUrl('/admin/gestion-productos');
               } else {
               }
             });

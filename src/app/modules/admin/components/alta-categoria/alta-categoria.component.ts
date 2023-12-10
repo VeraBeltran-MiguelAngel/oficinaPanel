@@ -53,7 +53,7 @@ export class AltaCategoriaComponent implements OnInit {
             .afterClosed()
             .subscribe((cerrarDialogo: Boolean) => {
               if (cerrarDialogo) {
-                this.router.navigateByUrl('/admin/lista-categoria');
+                this.router.navigateByUrl('/admin/gestion-productos');
               } else {
               }
             });

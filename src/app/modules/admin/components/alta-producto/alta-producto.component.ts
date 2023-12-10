@@ -17,6 +17,8 @@ export class AltaProductoComponent {
   message: string = '';
   hide = true;
   producto: any;
+  imagen: File | null = null;
+  
 
   constructor(
     public formulario: FormBuilder,
@@ -31,7 +33,8 @@ export class AltaProductoComponent {
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
       estatus: ['', Validators.required],
-      Categoria_idCategoria: ['', Validators.required]
+      Categoria_idCategoria: ['', Validators.required],
+      imagen: ['']
     });
   }
 
@@ -53,6 +56,11 @@ export class AltaProductoComponent {
     this.router.navigateByUrl('/admin/gestion-productos');
   }
 
+  onFileSelected(event: any): void {
+    const file: File = event.target.files[0];
+    this.imagen = file;
+  }
+
   enviar(): any {
     console.log(this.formularioProducto.value);
     // Verifica si el formulario es válido
@@ -67,7 +75,7 @@ export class AltaProductoComponent {
             .afterClosed()
             .subscribe((cerrarDialogo: Boolean) => {
               if (cerrarDialogo) {
-                this.router.navigateByUrl('/admin/lista-producto');
+                this.router.navigateByUrl('/admin/gestion-productos');
               } else {
               }
             });
