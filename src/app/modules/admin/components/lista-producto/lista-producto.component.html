@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Tamaño</th>
+                  
                   <th scope="col">Descripción</th>
                   <th scope="col">Precio</th>
                   <th scope="col">Estatus</th>
@@ -28,7 +28,7 @@
               <tbody>
                 <tr *ngFor="let producto of productos | listarProducto: page: search">
                   <td>{{ producto.nombre }} </td>
-                  <td>{{ getTamano(producto) }}</td>
+                  
                   <td>{{ producto.descripcion}} </td>
                   <td>{{ producto.precio }} </td>
                   <td>

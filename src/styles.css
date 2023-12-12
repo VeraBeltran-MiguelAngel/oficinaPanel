@@ -9,3 +9,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding-bottom: 139px;
     min-height: 100vh;
 }
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";

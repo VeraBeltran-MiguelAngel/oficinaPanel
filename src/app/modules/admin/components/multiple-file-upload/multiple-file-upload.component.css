@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+/**propiedades btn aceptar-guardar**/
+#upload-button {
+  width: 250px;
+  height: 40px;
+  margin: 10px 7px;
+  background: #FD9727; 
+  color: black;
+  font-size: larger;
+}

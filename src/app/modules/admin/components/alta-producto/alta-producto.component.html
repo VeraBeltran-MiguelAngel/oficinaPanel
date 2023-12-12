@@ -17,7 +17,7 @@
                         <input type="text" matInput placeholder="Gatorade" autocomplete="off" id="nombre" formControlName="nombre">
                     </mat-form-field>
                 </p>
-             
+            
                 <p>
                     <label for="tamaño" class="large-text" style="margin-right: 28px;margin-left: 45px;">Tamaño:</label>
                     <mat-form-field appearance="outline" class="inputs_properties" style="margin-right: 35px;" required>
@@ -45,7 +45,7 @@
                 <br/>
             </div>
             <div class="col-sm-6">  
-                 
+            
                 <p>
                     <label for="estatus" class="large-text" style="margin-right: 63px;margin-left: 45px;">Estatus:</label>
                     <mat-form-field style="width: 220px;height: 90px;" autocomplete="off" required>
@@ -64,17 +64,24 @@
                     </mat-form-field>
                 </p>
 
-                <p>
-                    <label for="imagen" class="large-text" style="margin-right: 28px;margin-left: 45px;">Imagen:</label>
-                    <input type="file" (change)="onFileSelected($event)" id="imagen" style="margin-right: 35px;">
-                  </p>
+                <h3> Carga imagenes a tu producto
+                    <p>
+                        <!-- <multiple-file-upload></multiple-file-upload> -->
+                        <subir-imagenes></subir-imagenes>
+                       
+                        </p>
+                </h3>
+
+            
                     
             </div>
         </div>
         <div style="display: flex; justify-content: center;">
             <button mat-stroked-button type="submit" (click)="enviar()" style="background-color: #fd9727; font-size: 20px; margin-top: 17px; height: 40px; margin-right: 90px;">Aceptar</button>
             <button mat-stroked-button (click)="cancelar()" style="background-color: #fd9727; font-size: 20px; margin-top: 17px; height: 40px;">Cancelar</button>
-          </div>          
+        </div>          
     </div>
 </form>
+
+
 <br/><br/><br/><br/>

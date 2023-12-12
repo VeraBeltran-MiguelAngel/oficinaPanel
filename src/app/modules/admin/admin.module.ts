@@ -19,6 +19,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
 import {
   FaIconLibrary,
   FontAwesomeModule,
@@ -71,6 +74,8 @@ import { ListarMembresiaPipe } from 'src/app/pipes/membresias/lista-proveedor.pi
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-cargando.component';
 import { ProductManagementComponent } from './components/productManagement/productManagement.component';
+import { MultipleFileUploadComponent } from './components/multiple-file-upload/multiple-file-upload.component';
+import { SubirImagenesComponent } from './components/subirImagenes/subirImagenes.component';
 
 
 @NgModule({
@@ -110,7 +115,9 @@ import { ProductManagementComponent } from './components/productManagement/produ
     ListarMembresiaPipe,
     NotificacionesComponent,
     MensajeCargandoComponent,
-    ProductManagementComponent
+    ProductManagementComponent,
+    MultipleFileUploadComponent,
+    SubirImagenesComponent
   ],
   imports: [
     CommonModule,
@@ -133,6 +140,9 @@ import { ProductManagementComponent } from './components/productManagement/produ
     MatButtonModule,
     MatCheckboxModule,
     MatTabsModule, // tabs de material (pestañas)
+    MatProgressBarModule,
+    FileUploadModule,
+    ToastModule
   ],
 })
 export class AdminModule {

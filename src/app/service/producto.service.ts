@@ -31,5 +31,9 @@ export class ProductoService {
 
   actualizarProducto(id:any,datosProducto:any):Observable<any>{
     return this.clienteHttp.post(this.API+"?actualizar="+id,datosProducto);
-  }  
+  } 
+  
+  subirImagenes(imagenes : any):Observable<any>{
+    return this.clienteHttp.post(this.API+"?subirImagenes",imagenes);
+  }
 }

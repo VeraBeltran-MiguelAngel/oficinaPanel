@@ -56,10 +56,7 @@ export class AltaProductoComponent {
     this.router.navigateByUrl('/admin/gestion-productos');
   }
 
-  onFileSelected(event: any): void {
-    const file: File = event.target.files[0];
-    this.imagen = file;
-  }
+
 
   enviar(): any {
     console.log(this.formularioProducto.value);
