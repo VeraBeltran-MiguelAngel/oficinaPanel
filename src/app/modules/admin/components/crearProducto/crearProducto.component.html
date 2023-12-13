@@ -95,28 +95,28 @@
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="inputs_properties">
-                <mat-label>Marca</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  placeholder="Marca comercial"
-                  autocomplete="off"
-                  formControlName="marca"
-                  id="marca"
-                  [errorStateMatcher]="matcher"
-                />
-                <mat-error
-                  *ngIf="
-                    form.get('marca')?.hasError('pattern') &&
-                    !form.get('marca')?.hasError('required')
-                  "
-                >
-                  <strong class="txt_msg">**Solo se admiten letras</strong>
-                </mat-error>
-                <mat-error *ngIf="form.get('marca')?.hasError('required')"
-                  ><strong class="txt_msg">**Campo requerido</strong></mat-error
-                >
-              </mat-form-field>
+              <mat-label>Marca</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Marca comercial"
+                autocomplete="off"
+                formControlName="marca"
+                id="marca"
+                [errorStateMatcher]="matcher"
+              />
+              <mat-error
+                *ngIf="
+                  form.get('marca')?.hasError('pattern') &&
+                  !form.get('marca')?.hasError('required')
+                "
+              >
+                <strong class="txt_msg">**Solo se admiten letras</strong>
+              </mat-error>
+              <mat-error *ngIf="form.get('marca')?.hasError('required')"
+                ><strong class="txt_msg">**Campo requerido</strong></mat-error
+              >
+            </mat-form-field>
 
             <mat-form-field appearance="outline" class="inputs_properties">
               <mat-label>Precio de venta</mat-label>
@@ -174,7 +174,14 @@
 
             <mat-form-field appearance="outline" class="inputs_properties">
               <mat-label>Codigo de barra</mat-label>
-              <input id="codigoBarra" type="text" matInput autocomplete="off" placeholder="escribelo o escanealo"/>
+              <input
+                id="codigoBarra"
+                formControlName="codigoBarra"
+                type="text"
+                matInput
+                autocomplete="off"
+                placeholder="escribelo o escanealo"
+              />
             </mat-form-field>
 
             <mat-form-field
@@ -240,7 +247,7 @@
                 [errorStateMatcher]="matcher"
               >
                 <mat-option value="Kilos">Kilos</mat-option>
-                <mat-option value="Kilos">Gramos</mat-option>
+                <mat-option value="Gramos">Gramos</mat-option>
                 <mat-option value="Litros">Litros</mat-option>
                 <mat-option value="Mililitros">Mililitros</mat-option>
               </mat-select>
@@ -279,85 +286,112 @@
               >
             </mat-form-field>
             <mat-form-field appearance="outline" class="inputs_properties">
-                <mat-label>Sabor</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  placeholder="Marca comercial"
-                  autocomplete="off"
-                  formControlName="sabor"
-                  id="sabor"
-                  [errorStateMatcher]="matcher"
-                />
-                <mat-error
-                  *ngIf="
-                    form.get('sabor')?.hasError('pattern') &&
-                    !form.get('sabor')?.hasError('required')
-                  "
-                >
-                  <strong class="txt_msg">**Solo se admiten letras</strong>
-                </mat-error>
-                <mat-error *ngIf="form.get('sabor')?.hasError('required')"
-                  ><strong class="txt_msg">**Campo requerido</strong></mat-error
-                >
-              </mat-form-field>
-        
+              <mat-label>Sabor</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Marca comercial"
+                autocomplete="off"
+                formControlName="sabor"
+                id="sabor"
+                [errorStateMatcher]="matcher"
+              />
+              <mat-error
+                *ngIf="
+                  form.get('sabor')?.hasError('pattern') &&
+                  !form.get('sabor')?.hasError('required')
+                "
+              >
+                <strong class="txt_msg">**Solo se admiten letras</strong>
+              </mat-error>
+              <mat-error *ngIf="form.get('sabor')?.hasError('required')"
+                ><strong class="txt_msg">**Campo requerido</strong></mat-error
+              >
+            </mat-form-field>
           </fieldset>
 
           <fieldset *ngIf="idCategoria === 4">
             <legend>Caracteristicas ropa</legend>
 
             <mat-form-field appearance="outline" class="inputs_properties">
-                <mat-label>Color</mat-label>
-                <input
-                  type="text"
-                  matInput
-                  placeholder="Marca comercial"
-                  autocomplete="off"
-                  formControlName="color"
-                  id="color"
-                  [errorStateMatcher]="matcher"
-                />
-                <mat-error
-                  *ngIf="
-                    form.get('color')?.hasError('pattern') &&
-                    !form.get('color')?.hasError('required')
-                  "
-                >
-                  <strong class="txt_msg">**Solo se admiten letras</strong>
-                </mat-error>
-                <mat-error *ngIf="form.get('color')?.hasError('required')"
-                  ><strong class="txt_msg">**Campo requerido</strong></mat-error
-                >
-              </mat-form-field>
+              <mat-label>Color</mat-label>
+              <input
+                type="text"
+                matInput
+                placeholder="Marca comercial"
+                autocomplete="off"
+                formControlName="color"
+                id="color"
+                [errorStateMatcher]="matcher"
+              />
+              <mat-error
+                *ngIf="
+                  form.get('color')?.hasError('pattern') &&
+                  !form.get('color')?.hasError('required')
+                "
+              >
+                <strong class="txt_msg">**Solo se admiten letras</strong>
+              </mat-error>
+              <mat-error *ngIf="form.get('color')?.hasError('required')"
+                ><strong class="txt_msg">**Campo requerido</strong></mat-error
+              >
+            </mat-form-field>
 
-              <mat-form-field appearance="outline" class="inputs_properties">
-                <mat-label>Talla</mat-label>
-                <mat-select
-                  id="talla"
-                  formControlName="talla"
-                  [errorStateMatcher]="matcher"
-                >
-                  <mat-option value="CH">Chica</mat-option>
-                  <mat-option value="M">Mediana</mat-option>
-                  <mat-option value="G">Grande</mat-option>
-                  <mat-option value="EG">Extra grande</mat-option>
-                </mat-select>
-                <mat-error
-                  *ngIf="form.get('talla')?.hasError('required')"
-                >
-                  <strong class="txt_msg">**Campo requerido</strong>
-                </mat-error>
-              </mat-form-field>
+            <mat-form-field appearance="outline" class="inputs_properties">
+              <mat-label>Talla</mat-label>
+              <mat-select
+                id="talla"
+                formControlName="talla"
+                [errorStateMatcher]="matcher"
+              >
+                <mat-option value="CH">Chica</mat-option>
+                <mat-option value="M">Mediana</mat-option>
+                <mat-option value="G">Grande</mat-option>
+                <mat-option value="EG">Extra grande</mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('talla')?.hasError('required')">
+                <strong class="txt_msg">**Campo requerido</strong>
+              </mat-error>
+            </mat-form-field>
           </fieldset>
 
           <fieldset>
             <legend>Imagenes</legend>
-            <subir-imagenes></subir-imagenes>
+
+            <div class="card flex justify-content-center">
+              <p-toast></p-toast>
+
+              <p-fileUpload
+                formControlName="files"
+                [showUploadButton]="false"
+                chooseLabel="Elige las imagenes"
+                [multiple]="true"
+                accept="image/*"
+                [maxFileSize]="1000000"
+                (onSelect)="onFileSelect($event)"
+              >
+                <ng-template pTemplate="content">
+                  <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles">
+                      {{ file.name }} - {{ file.size }} bytes
+                    </li>
+                  </ul>
+                </ng-template>
+              </p-fileUpload>
+            </div>
           </fieldset>
-<br>
-          <button routerLink="/admin/gestion-productos" mat-raised-button id="btn_canelar" color="warn">Cancelar</button>
-          <button type="submit" id="btn_guardar" mat-raised-button>Crear producto</button>
+          <br />
+          <button
+            routerLink="/admin/gestion-productos"
+            mat-raised-button
+            id="btn_canelar"
+            color="warn"
+          >
+            Cancelar
+          </button>
+          <button type="submit" id="btn_guardar" mat-raised-button>
+            Crear producto
+          </button>
         </form>
       </div>
     </div>

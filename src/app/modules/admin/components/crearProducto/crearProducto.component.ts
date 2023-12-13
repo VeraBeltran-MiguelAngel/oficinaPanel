@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   OnInit,
 } from '@angular/core';
@@ -14,6 +13,7 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { MessageService } from 'primeng/api'; /**siempre debes importarlo */
 import { ToastrService } from 'ngx-toastr';
 import { CategoriaService } from 'src/app/service/categoria.service';
 
@@ -35,7 +35,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: './crearProducto.component.html',
   styleUrls: ['./crearProducto.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [DatePipe],
+  providers: [DatePipe, MessageService],
 })
 export class CrearProductoComponent implements OnInit {
   fechaCreacion: string;
@@ -43,9 +43,10 @@ export class CrearProductoComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   idCategoria: number;
   listaCategorias: any;
+  uploadedFiles: any[] = [];
+  
 
   constructor(
-    private cdr: ChangeDetectorRef,
     private toastr: ToastrService,
     private datePipe: DatePipe,
     private fb: FormBuilder,
@@ -80,7 +81,7 @@ export class CrearProductoComponent implements OnInit {
 
       descuento: ['', Validators.required],
       porcentaje: [
-        '0',
+        0,
         Validators.compose([
           Validators.required,
           Validators.pattern(/^[0-9]+$/), //solo numeros enteros
@@ -88,31 +89,31 @@ export class CrearProductoComponent implements OnInit {
       ],
       fechaCreacion: [this.fechaCreacion],
       codigoBarra: [''],
-      unidadMedicion: ['S/E', Validators.compose([Validators.required])],
+      unidadMedicion: ['NA', Validators.compose([Validators.required])],
       cantidadUnidades: [
-        '0',
+        0,
         Validators.compose([
           Validators.required,
           Validators.pattern(/^[0-9]+$/), //solo numeros enteros
         ]),
       ],
-      talla: ['S/E', Validators.compose([Validators.required])],
+      talla: ['NA', Validators.compose([Validators.required])],
       color: [
-        'SE',
+        'NA',
         Validators.compose([
           Validators.required,
           Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
         ]),
       ],
-      longitud: [''],
+      longitud: ['NA'],
       sabor: [
-        'SE',
+        'NA',
         Validators.compose([
           Validators.required,
           Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
         ]),
       ],
-      genero: ['S/E', Validators.compose([Validators.required])],
+      genero: ['NA', Validators.compose([Validators.required])],
       marca: [
         '',
         Validators.compose([
@@ -120,6 +121,7 @@ export class CrearProductoComponent implements OnInit {
           Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
         ]),
       ],
+      files: [[]], // Inicializa el control de archivos como un array vacío
     });
   }
 
@@ -148,8 +150,25 @@ export class CrearProductoComponent implements OnInit {
     console.log('Opción seleccionada:', event);
     this.idCategoria = event;
     console.log('valor idCategoria:', this.idCategoria);
-    this.cdr.detectChanges(); // Forzar la actualización del componente
   }
 
-  registrar(): any {}
+  onFileSelect(event: any) {
+    // event.files contiene la lista de archivos seleccionados
+    const selectedFiles = event.files;
+  
+    // Obtén el valor actual del control 'files' en el formulario
+    const currentFiles = this.form.get('files')?.value || [];
+  
+    // Agrega los nuevos archivos al valor actual
+    const updatedFiles = [...currentFiles, ...selectedFiles];
+  
+    // Actualiza el valor del control 'files' en el formulario con la nueva lista de archivos
+    this.form.patchValue({ files: updatedFiles });
+
+  }
+
+  registrar(): any {
+    const formData = this.form.value;
+    console.log('Datos del formulario:', formData);
+  }
 }
