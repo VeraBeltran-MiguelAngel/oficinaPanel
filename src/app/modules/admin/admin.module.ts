@@ -76,6 +76,7 @@ import { MensajeCargandoComponent } from './components/mensaje-cargando/mensaje-
 import { ProductManagementComponent } from './components/productManagement/productManagement.component';
 import { MultipleFileUploadComponent } from './components/multiple-file-upload/multiple-file-upload.component';
 import { SubirImagenesComponent } from './components/subirImagenes/subirImagenes.component';
+import { CrearProductoComponent } from './components/crearProducto/crearProducto.component';
 
 
 @NgModule({
@@ -117,7 +118,8 @@ import { SubirImagenesComponent } from './components/subirImagenes/subirImagenes
     MensajeCargandoComponent,
     ProductManagementComponent,
     MultipleFileUploadComponent,
-    SubirImagenesComponent
+    SubirImagenesComponent,
+    CrearProductoComponent
   ],
   imports: [
     CommonModule,

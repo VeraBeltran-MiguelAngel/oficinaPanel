@@ -2,8 +2,8 @@
     <p-toast></p-toast>
 
     <p-fileUpload
-      name="file"
-      url="https://www.primefaces.org/cdn/api/upload.php"
+      name="files[]"
+      url="http://localhost:80/uploadFiles/subir.php?subirImagenes"
       (onUpload)="onUpload($event)"
       [multiple]="true"
       accept="image/*"

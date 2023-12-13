@@ -23,6 +23,7 @@ import { AltaProductoComponent } from './components/alta-producto/alta-producto.
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { ProductManagementComponent } from './components/productManagement/productManagement.component';
+import { CrearProductoComponent } from './components/crearProducto/crearProducto.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,7 @@ const routes: Routes = [
       { path: 'editar-producto/:id', component: EditarProductoComponent },
       { path: 'notificaciones', component: NotificacionesComponent },
       { path: 'gestion-productos', component: ProductManagementComponent },
+      { path: 'crearProducto', component: CrearProductoComponent },
       { path: '', redirectTo: '/admin/home', pathMatch: 'full' },
     ],
   },

@@ -1,4 +1,4 @@
-<h2>Multiple File Upload</h2>
+<h2>Carga imagenes a tu producto</h2>
 
 <input type="file" class="file-input" multiple (change)="onChange($event)" />
 
@@ -12,7 +12,7 @@
     </ul>
   </section>
 
-  <button (click)="onUpload()" class="upload-button" id="upload-button">Upload the file</button>
+  <!-- <button (click)="onUpload()" class="upload-button" id="upload-button">Upload the file</button> -->
 
   <section [ngSwitch]="status">
     <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
