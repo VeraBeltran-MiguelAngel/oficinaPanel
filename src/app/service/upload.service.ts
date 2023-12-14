@@ -1,17 +1,21 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UploadService {
-  SERVER_URL: string = 'https://file.io/';
-  constructor(private httpClient: HttpClient) {}
+  API :string ="http://localhost/uploadFiles/creaProducto.php";
+  // API: string =
+  //   'https://olympus.arvispace.com/panelAdmin/conf/creaProducto.php';
+  //para guardar los headers que manda el API
+  httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  public upload(formData: any) {
-    return this.httpClient.post<any>(this.SERVER_URL, formData, {
-      reportProgress: true,
-      observe: 'events',
+  constructor(private clienteHttp: HttpClient) {}
+
+  creaProductoConImagenes(formData: any) {
+    return this.clienteHttp.post(this.API + '?creaProducto', formData, {
+      headers: this.httpHeaders,
     });
   }
 }
