@@ -362,7 +362,8 @@
               <p-toast></p-toast>
 
               <p-fileUpload
-                formControlName="files"
+                formControlName="files[]"
+                name="files[]"
                 [showUploadButton]="false"
                 chooseLabel="Elige las imagenes"
                 [multiple]="true"

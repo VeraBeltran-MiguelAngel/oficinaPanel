@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api'; /**siempre debes importarlo */
 import { ToastrService } from 'ngx-toastr';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { UploadService } from 'src/app/service/upload.service';
+import { HttpClient } from '@angular/common/http';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -27,6 +28,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     );
   }
 }
+
 @Component({
   selector: 'crear-producto',
   templateUrl: './crearProducto.component.html',
@@ -40,14 +42,15 @@ export class CrearProductoComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   idCategoria: number;
   listaCategorias: any;
-  uploadedFiles: any[] = [];
+  uploadedFiles: File[] = [];
 
   constructor(
     private toastr: ToastrService,
     private datePipe: DatePipe,
     private fb: FormBuilder,
     private categoriaService: CategoriaService,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private httpClient: HttpClient
   ) {
     this.fechaCreacion = this.obtenerFechaActual();
     // formulario
@@ -99,7 +102,7 @@ export class CrearProductoComponent implements OnInit {
         'NA',
         Validators.compose([
           Validators.required,
-          Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
+          Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u), //solo letras
         ]),
       ],
       longitud: ['NA'],
@@ -150,6 +153,10 @@ export class CrearProductoComponent implements OnInit {
   }
 
   onFileSelect(event: any) {
+    for (let file of event.files) {
+      this.uploadedFiles.push(file);
+    }
+
     // event.files contiene la lista de archivos seleccionados
     const selectedFiles = event.files;
 
@@ -162,73 +169,82 @@ export class CrearProductoComponent implements OnInit {
     // Actualiza el valor del control 'files' en el formulario con la nueva lista de archivos
     this.form.patchValue({ files: updatedFiles });
   }
-
   registrar(): any {
     // const formData = new FormData();
-    // formData.append('nombre', this.form.value.nombre);
-    // formData.append('descripcion', this.form.value.descripcion);
-    // formData.append('idCategoria', this.form.value.idCategoria);
-    // formData.append('precioVenta', this.form.value.precioVenta);
-    // formData.append('precioCompra', this.form.value.precioCompra);
-    // formData.append('descuento', this.form.value.descuento);
-    // formData.append('porcentaje', this.form.value.porcentaje);
-    // formData.append('fechaCreacion', this.form.value.fechaCreacion);
-    // formData.append('codigoBarra', this.form.value.codigoBarra);
-    // formData.append('unidadMedicion', this.form.value.unidadMedicion);
-    // formData.append('cantidadUnidades', this.form.value.cantidadUnidades);
-    // formData.append('talla', this.form.value.talla);
-    // formData.append('color', this.form.value.color);
-    // formData.append('longitud', this.form.value.longitud);
-    // formData.append('sabor', this.form.value.sabor);
-    // formData.append('genero', this.form.value.genero);
-    // formData.append('marca', this.form.value.marca);
 
-    // // Agregar imágenes al FormData
-    // for (const file of this.form.value.files) {
-    //   formData.append('files', file);
+    // for (const file of this.uploadedFiles) {
+    //   formData.append('files[]', file, file.name);
     // }
 
-    // console.log('Datos de las imagenes:');
-    // formData.forEach((value, key) => {
-    //   console.log(key, value);
-    // });
-
-    // // Construye un objeto que representa los datos del FormData
-    // let formDataObject: { [key: string]: FormDataEntryValue } = {};
-    // formData.forEach((value, key) => {
-    //   formDataObject[key] = value;
-    // });
-    
-    // // Convierte el objeto a JSON
-    // let formDataJSON = JSON.stringify(formDataObject);
-
-    // // Puedes imprimir el JSON en la consola para verificar
-    // console.log(formDataJSON);
+    // this.httpClient
+    //   .post(
+    //     'http://localhost/uploadFiles/creaProductoV2.php?creaProducto',
+    //     formData
+    //   )
+    //   .subscribe({
+    //     next: (response) => {
+    //       console.log('Respuesta del servidor:', response);
+    //       // Puedes manejar la respuesta del servidor según tus necesidades
+    //     },
+    //     error: (error) => {
+    //       console.error('Error al enviar archivos al servidor:', error);
+    //     },
+    //   });
 
     if (this.form.valid) {
-      console.log(this.form.value);
-      this.uploadService.creaProductoConImagenes(this.form.value).subscribe({
-        next: (respuesta: any) => {
-          console.log(respuesta);
+      console.log('Formulario:', this.form.value);
+      this.uploadService
+        .creaProducto(this.form.value)
+        .subscribe({
+          next: (respuesta) => {
+            console.log(respuesta);
 
-          if (respuesta.success) {
-            this.toastr.success(respuesta.message, 'Exito', {
+            if (respuesta.success) {
+              this.toastr.success(respuesta.message, 'Exito', {
+                positionClass: 'toast-bottom-left',
+              });
+            } else {
+              this.toastr.error(respuesta.message, 'Error', {
+                positionClass: 'toast-bottom-left',
+              });
+            }
+          },
+          error: (paramError) => {
+            console.error(paramError); // Muestra el error del api en la consola para diagnóstico
+            //accedemos al atributo error y al key
+            this.toastr.error(paramError.error.message, 'Error', {
               positionClass: 'toast-bottom-left',
             });
-          } else {
-            this.toastr.error(respuesta.message, 'Error', {
+          },
+        });
+
+        this.uploadService
+        .subirImagenes(this.uploadedFiles)
+        .subscribe({
+          next: (respuesta) => {
+            console.log(respuesta);
+
+            if (respuesta.success) {
+              this.toastr.success(respuesta.message, 'Exito', {
+                positionClass: 'toast-bottom-left',
+              });
+            } else {
+              this.toastr.error(respuesta.message, 'Error', {
+                positionClass: 'toast-bottom-left',
+              });
+            }
+          },
+          error: (paramError) => {
+            console.error(paramError); // Muestra el error del api en la consola para diagnóstico
+            //accedemos al atributo error y al key
+            this.toastr.error(paramError.error.message, 'Error', {
               positionClass: 'toast-bottom-left',
             });
-          }
-        },
-        error: (paramError) => {
-          console.error(paramError); // Muestra el error del api en la consola para diagnóstico
-          //accedemos al atributo error y al key
-          this.toastr.error(paramError.error.message, 'Error', {
-            positionClass: 'toast-bottom-left',
-          });
-        },
-      });
+          },
+        });
+
+
+
     } else {
       this.toastr.error('Completa el formulario', 'Error', {
         positionClass: 'toast-bottom-left',

@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SubirImagenesComponent {
-  uploadedFiles: any[] = [];
+  uploadedFiles: File[] = [];
 
   constructor(
     private messageService: MessageService,
