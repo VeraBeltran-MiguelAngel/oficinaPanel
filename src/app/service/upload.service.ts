@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UploadService {
-  API: string = 'http://localhost/uploadFiles/creaProductoV3.php';
-  // API: string =
-  //   'https://olympus.arvispace.com/panelAdmin/conf/creaProducto.php';
+  // API: string = 'http://localhost/uploadFiles/creaProductoV3.php';
+  API: string =
+    'https://olympus.arvispace.com/panelAdmin/conf/creaProductoV3.php';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
