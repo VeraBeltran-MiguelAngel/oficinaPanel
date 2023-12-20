@@ -6,7 +6,7 @@
 /** PROPIEDADES HEADER ----- TOOLBAR ----------------------------- **/
 /**propiedades de logo toolbar**/
 .logo_h {
-    width: 50%;
+    width: 80%;
   }
 
   /**propiedades grid padre toolbar**/
@@ -50,7 +50,7 @@ mat-toolbar {
     margin: 10px;
     width: 140px;
     height: 45px;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #DF7E54;
     color: black;
 }
@@ -86,66 +86,4 @@ at-menu {
     text-decoration: none;
     color: white;
     font-size: larger;
-}
-
-/**propiedades lista **/
-#prueba {
-	color: white;
-    font-size: larger;
-    margin: 0px 5px;
-}
-
-#ops {
-    display: flex; 
-    align-items: center;
-    border-radius: 15px;
-	background: #FD9727;
-    margin: 0 10px;
-    height: 40px;
-    width: auto;
-}
-
-nav {
-    border-bottom: #FD9727 solid;
-    border-width: 7px;
-}
-
-#navbarNav {
-    text-align: right;
-    padding-right: 15px;
-}
-
-.img_logo {
-    max-height: 149px;
-}
-
-.active {
-    font-weight: bold;
-    text-decoration: 3px underline #FD9727;
-}
-
-@media (max-width: 991px) {
-	#prueba {
-		color: rgb(37, 36, 36);
-        font-size: medium;
-        
-        margin: 0;
-	}
-
-    #ops {
-        display: block;
-        align-items: end;
-        border-radius: none;
-        background: white;
-        margin: 0;
-        height: auto;
-    }
-
-}
-
-@media (max-width: 360px){
-    .img_logo {
-        
-        width: 360px;
-    }
 }
