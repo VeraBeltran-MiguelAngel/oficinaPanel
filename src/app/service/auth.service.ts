@@ -17,8 +17,8 @@ export class AuthService {
   //API: string = 'conf/loginRole.php/';
   //admin@gmail.com
   //admin123
-  API: string = 'http://localhost/plan/conexion.php'
-  //API: string = 'https://olympus.arvispace.com/panelAdmin/conf/loginRolev2.php/';
+  //API: string = 'http://localhost/plan/conexion.php'
+  API: string = 'https://olympus.arvispace.com/panelAdmin/conf/loginRolev2.php/';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -78,7 +78,7 @@ export class AuthService {
       })
       .pipe(
         catchError((err: any) => {
-          if (err.status !== 401) {
+          if (err.status === 401) {
             this.router.navigate(['/login']);
             const errorMessage = err.error.message;
             // this.toastr.error(errorMessage,'Error');
