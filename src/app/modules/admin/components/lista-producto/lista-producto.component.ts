@@ -22,6 +22,7 @@ export class ListaProductoComponent implements OnInit {
       }
     })
   }
+  
 
   getCategoria(idCategoria: number) {
     this.categoriaService.consultarCategoria(idCategoria).subscribe((categoria) => {

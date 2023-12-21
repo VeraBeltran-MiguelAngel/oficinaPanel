@@ -119,7 +119,7 @@ import { CrearProductoComponent } from './components/crearProducto/crearProducto
     ProductManagementComponent,
     MultipleFileUploadComponent,
     SubirImagenesComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
   ],
   imports: [
     CommonModule,
