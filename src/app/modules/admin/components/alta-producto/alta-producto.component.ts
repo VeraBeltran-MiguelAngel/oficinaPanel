@@ -58,7 +58,7 @@ export class AltaProductoComponent {
 
 
 
-  enviar(): any {
+/*  enviar(): any {
     console.log(this.formularioProducto.value);
     // Verifica si el formulario es válido
     if (this.formularioProducto.valid) {
@@ -81,5 +81,5 @@ export class AltaProductoComponent {
       // El formulario no es válido, muestra un mensaje de error
       this.message = 'Por favor, complete todos los campos requeridos.';
     }
-  }
+  }*/
 }

@@ -1,12 +1,14 @@
     <!--CONTENIDO PANTALLA ALTA DE UDUARIO-->
+    
     <div class="content_body">
         <div class="content_margin">
-            <div class="title_page">
-                <h2 class="mb-3">Alta de colaborador</h2>
-            </div>
+          <br/><br/>
+          <mat-label class="large-text" style="font-family: Arial; font-size: 30px;margin-left: 15px;">Colaborador:</mat-label>
+          <br/>
+          <br/>
             <div class="form_data">
                 <form [formGroup]="form" (ngSubmit)="actualizar()">
-                    
+                  <div class="mi-div-con-borde responsive-div">
                         <mat-form-field appearance="outline" class="inputs_properties">
                           <mat-label>Nombre</mat-label>
                           <input type="text" matInput placeholder="Juan" autocomplete="off" formControlName="nombre" id="nombre" [errorStateMatcher]="matcher">
@@ -85,9 +87,12 @@
                       </mat-form-field>  
                                    
                       <br/>
-                        <button routerLink="/admin/colaboradores" mat-raised-button id="btn_canelar" color="warn">Cancelar</button>
-                        <button type="submit" id="btn_guardar" mat-raised-button>Actualizar registro</button>
 
+                      <div style="display: flex; justify-content: center;">
+                        <button mat-raised-button type="submit"  style="background-color: #fd9727; font-size: 20px; margin-top: 17px; height: 40px; margin-right: 90px;width: 120px;">Aceptar</button>
+                        <button mat-raised-button    routerLink="/admin/colaboradores" style="background-color: #000000; font-size: 20px; margin-top: 17px; height: 40px;color: white; width: 120px;">Cancelar</button>
+                      </div>  
+                    </div>  
                 </form>
             </div>
         </div>

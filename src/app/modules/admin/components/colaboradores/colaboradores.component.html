@@ -2,7 +2,7 @@
     <h2 class="mb-3">Lista de colaboradores</h2>
 
     <div style="text-align: right; margin-bottom: 50px;">
-        <button mat-raised-button routerLink="/admin/alta-colaborador" style="background-color: #fd9727; font-size: 16px; margin-right: 100px; "><mat-icon>add</mat-icon>AGREGAR COLABORADOR</button>
+        <button mat-raised-button routerLink="/admin/alta-colaborador" style="background-color: #fd9727; font-size: 16px;"><mat-icon>add</mat-icon>AGREGAR COLABORADOR</button>
       </div>
 
     <div class="mb-3">
@@ -41,12 +41,12 @@
 
           <div style="text-align: right; margin-bottom: 50px;">
             <button mat-icon-button color="primary" (click)="prevPage()">
-                <mat-icon>navigate_before</mat-icon>
-            </button>
+              <mat-icon>navigate_before</mat-icon>
+          </button>
 
-            <button mat-icon-button color="primary" (click)="nextPage()" [disabled]="(empleados | listarEmpleados:page:search).length === 0">
-                <mat-icon>navigate_next</mat-icon>
-            </button>  
+          <button mat-icon-button color="primary" (click)="nextPage()" [disabled]="(empleados | listarEmpleados:page:search).length === 0">
+              <mat-icon>navigate_next</mat-icon>
+          </button>  
           </div>
 
     </div>

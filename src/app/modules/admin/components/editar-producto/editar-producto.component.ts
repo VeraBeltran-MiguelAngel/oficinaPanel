@@ -8,6 +8,7 @@ import { ColaboradorService } from 'src/app/service/colaborador.service';
 import { ProductoService } from 'src/app/service/producto.service';
 import { MatDialog } from "@angular/material/dialog";
 import { MensajeEmergentesComponent } from "../mensaje-emergentes/mensaje-emergentes.component";
+import { CategoriaService } from 'src/app/service/categoria.service';
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, formulario: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = formulario && formulario.submitted;
@@ -20,44 +21,113 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./editar-producto.component.css']
 })
 export class EditarProductoComponent {
-  formularioProducto: FormGroup;
+  form: FormGroup;
   gimnasio: any;
   message: string = '';
   producto: any;
   elID:any;
+  idCategoria: number;
+  listaCategorias: any;
 
-  constructor(public formulario:FormBuilder,
+  constructor(public fb:FormBuilder,
     private activeRoute: ActivatedRoute, 
     private productoService:ProductoService,
     private router:Router,
-    public dialog: MatDialog){
+    public dialog: MatDialog,
+    private categoriaService: CategoriaService,){
     this.elID=this.activeRoute.snapshot.paramMap.get('id');
     console.log(this.elID);
 
     //llamar al servicio datos empleado - pasando el parametro capturado por url
-    this.productoService.consultarProducto(this.elID).subscribe(
+    this.productoService.consultarProductosJ(this.elID).subscribe(
+      
       respuesta=>{
         //asignar valor a los campos correspondientes al fomulario
-        this.formularioProducto.setValue({
+        console.log(respuesta, "respuesta");
+        this.form.setValue({
           nombre:respuesta [0]['nombre'],
-          tamaño:respuesta [0]['tamaño'],
           descripcion:respuesta [0]['descripcion'],
+          Categoria_idCategoria:respuesta [0]['Categoria_idCategoria'],
           precio:respuesta [0]['precio'],
-          estatus:respuesta [0]['estatus'],
-          Categoria_idCategoria:respuesta [0]['Categoria_idCategoria']
+          precioCompra:respuesta [0]['precioCompra'],
+          descuento:respuesta [0]['descuento'],
+          porcentaje:respuesta [0]['porcentaje'],
+          fechaCreacion:respuesta [0]['fechaCreacion'],
+          codigoBarra:respuesta [0]['codigoBarra'],
+          unidadMedicion:respuesta [0]['unidadMedicion'],
+          cantidadUnidades:respuesta [0]['cantidadUnidades'],
+          talla:respuesta [0]['talla'],
+          color:respuesta [0]['color'],
+          longitud:respuesta [0]['longitud'],
+          sabor:respuesta [0]['sabor'],
+          genero:respuesta [0]['genero'],
+          marca:respuesta [0]['marca'],
+        //  files:respuesta [0]['files'],
         });
       }
+      
     );
 
-
-    //asignar validaciones a los campos de fomulario
-    this.formularioProducto = this.formulario.group({
-      nombre: ['', Validators.required],
-      tamaño: ['', Validators.required],
+    console.log( this.fb,"this.formularioProducto.setValue");
+    this.form = this.fb.group({
+      nombre: ['',Validators.compose([Validators.required,Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),]),],
       descripcion: ['', Validators.required],
-      precio: ['', Validators.required],
-      estatus: ['', Validators.required],
-      Categoria_idCategoria: ['', Validators.required]
+      Categoria_idCategoria: ['', Validators.compose([Validators.required])],
+      precio: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^\d+(\.\d{0,2})?$/), //solo acepta dos decimales
+        ]),
+      ],
+      precioCompra: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^\d+(\.\d{0,2})?$/), //solo acepta dos decimales
+        ]),
+      ],
+
+      descuento: ['', Validators.required],
+      porcentaje: [0,Validators.compose([Validators.required,
+          Validators.pattern(/^[0-9]+$/), //solo numeros enteros
+        ]),
+      ],
+      fechaCreacion: [''],
+      codigoBarra: [''],
+      unidadMedicion: ['NA', Validators.compose([Validators.required])],
+      cantidadUnidades: [
+        0,
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[0-9]+$/), //solo numeros enteros
+        ]),
+      ],
+      talla: ['NA', Validators.compose([Validators.required])],
+      color: [
+        'NA',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u), //solo letras
+        ]),
+      ],
+      longitud: ['NA'],
+      sabor: [
+        'NA',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
+        ]),
+      ],
+      genero: ['NA', Validators.compose([Validators.required])],
+      marca: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern(/^[^\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]+$/u),
+        ]),
+      ],
+     // files: [[]], // Inicializa el control de archivos como un array vacío
     });
   }
 
@@ -65,17 +135,15 @@ export class EditarProductoComponent {
   matcher = new MyErrorStateMatcher();
 
   //mandar a llamar el sevicio correspondiente al llenado del combo sucursal
-  ngOnInit():void{
-    this.productoService.obternerProducto().subscribe((respuesta) => {
-      console.log(respuesta);
-      if (Array.isArray(respuesta)) {
-        this.producto = respuesta.map((dato) => ({
-          value: dato.idProducto, // Valor que se enviará al seleccionar
-          label: dato.nombre, // Etiqueta que se mostrará en el combo
-        }));
-      } else {
-        console.error("La respuesta no es un arreglo.");
-      }
+  ngOnInit(): void {
+    this.categoriaService.obternerCategoria().subscribe({
+      next: (respuesta) => {
+        this.listaCategorias = respuesta;
+        console.log('lista de categorias:', this.listaCategorias);
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 
@@ -84,24 +152,32 @@ export class EditarProductoComponent {
   }
 
   actualizar(){
-    if (this.formularioProducto.valid) {
-    this.productoService.actualizarProducto(this.elID,this.formularioProducto.value).subscribe(()=>{
-
-      this.dialog.open(MensajeEmergentesComponent, {
-        data: `Producto actualizado exitosamente`,
-      })
-      .afterClosed()
-      .subscribe((cerrarDialogo: Boolean) => {
-        if (cerrarDialogo) {
-          this.router.navigateByUrl('/admin/lista-producto');
-        } else {
-          
-        }
-      });
-    });
-  } else {
-    // El formulario no es válido, muestra un mensaje de error
-    this.message = 'Por favor, complete todos los campos requeridos.';
-  }
+    this.productoService.actualizarProducto(this.elID,this.form.value).subscribe(
+      (response) => {
+        console.log('Producto actualizado correctamente:', response);
+        this.dialog.open(MensajeEmergentesComponent, {
+          data: `Producto actualizado exitosamente`,
+        })
+        .afterClosed()
+        .subscribe((cerrarDialogo: Boolean) => {
+          if (cerrarDialogo) {
+            this.router.navigateByUrl("/admin/gestion-productos");
+          } else {
+            
+          }
+        });
+      },
+      (error) => {
+        console.error('Error al actualizar producto:', error);
+        // Manejo de errores
+      }
+    );
 }
+
+infoCategoria(event: number) {
+  console.log('Opción seleccionada:', event);
+  this.idCategoria = event;
+  console.log('valor idCategoria:', this.idCategoria);
+}
+
 }
