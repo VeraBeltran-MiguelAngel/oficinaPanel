@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class UploadService {
   // API: string = 'http://localhost/uploadFiles/creaProductoV3.php';
   API: string =
-    'https://olympus.arvispace.com/panelAdmin/conf/creaProductoV3.php';
+    'https://olympus.arvispace.com/panelAdmin/conf/creaProductoV4.php';
   //para guardar los headers que manda el API
   httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -25,7 +25,7 @@ export class UploadService {
    * @param imagenes
    * @returns
    */
-  subirImagenes(imagenes: File[]): Observable<any> {
+  subirImagenes(imagenes: File[], idProducto: number): Observable<any> {
     const formData: FormData = new FormData();
     // !es muy importante que el nombre tenga llaves files[] , de lo contrario php no lo reconoce
     for (let i = 0; i < imagenes.length; i++) {
@@ -38,6 +38,11 @@ export class UploadService {
       console.log(key, value);
     });
 
-    return this.clienteHttp.post(this.API + '?subirImagenes', formData);
+    // Enviar directamente formData como cuerpo de la solicitud
+    return this.clienteHttp.post(
+      this.API + '?subirImagenes&idProducto=' + idProducto,
+      formData
+    );
   }
+
 }
