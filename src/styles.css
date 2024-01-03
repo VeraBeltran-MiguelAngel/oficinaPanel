@@ -10,5 +10,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-height: 100vh;
 }
 
-@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/themes/saga-orange/theme.css";
 @import "primeng/resources/primeng.css";
