@@ -1,63 +1,33 @@
-<mat-toolbar>
-  <div class="grid_tool">
-       
-      <div class="tool_logo">
-        <img class="logo_h" src="../../../../../assets/img/logo.jpeg" />
-      </div>
-
-     <!--- <button mat-fab class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background: #FD9727; color: white;">
-        <mat-icon>menu</mat-icon>
-      </button>-->
-
-    
-         <!-- <li class="nav-item" id="ops" >
-            <a class="nav-link" id="prueba" routerLink="./home" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">Inicio</a>
-          </li>-->
-          <div class="tool_menu">
-          <button
-          routerLink="./home"
-        class="btn"
-        mat-raised-button
-        style="background: #fd9727; color: white"
-      >
-        <p class="txt_btn_footer">Inicio</p>
-      </button>
-
-          <button
-          routerLink="./listaMembresias" 
-        class="btn"
-        mat-raised-button
-        style="background: #fd9727; color: white"
-      >
-        <p class="txt_btn_footer">Membresias</p>
-      </button>
-     
-          <button
-          routerLink="./lista-sucursales" 
-        class="btn"
-        mat-raised-button
-        style="background: #fd9727; color: white"
-      >
-        <p class="txt_btn_footer">Sucursales</p>
-      </button>
-        
-
-          <button
-          routerLink="./notificaciones"
-        class="btn"
-        mat-raised-button
-        style="background: #fd9727; color: white"
-      >
-        <p class="txt_btn_footer">Notificación</p>
-      </button>
-          
-         <!-- <li class="nav-item" id="ops">
-            <a class="nav-link" (click)="logout()" id="prueba" routerLink="./colaboradores">Cerrar sesión</a>
-          </li>-->
-          <button class="btn" title="Cerrar sesión" (click)="logout()">
-            <fa-icon [icon]="['fas', 'power-off']"></fa-icon>
-          </button>
-     </div>
- 
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <img class="logo_h" src="../../../../../assets/img/logo.jpeg" />
+    <button mat-fab class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="background: #FD9727; color: white;">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" id="ops" >
+          <a class="nav-link" id="prueba" routerLink="./home" routerLinkActive="active">Inicio</a>
+        </li>
+        <li class="nav-item" id="ops" >
+          <a class="nav-link" id="prueba" routerLink="./listaMembresias"  routerLinkActive="active">Membresias</a>
+        </li>
+        <li class="nav-item" id="ops" >
+          <a class="nav-link" id="prueba" routerLink="./lista-sucursales"  routerLinkActive="active">Sucursales</a>
+        </li>
+        <li class="nav-item" id="ops" >
+          <a class="nav-link" id="prueba" routerLink="./notificaciones"  routerLinkActive="active">Notificación</a>
+        </li>
+        <li class="nav-item" id="op" >
+          <a class="nav-link" id="prueba" (click)="logout()"><fa-icon [icon]="['fas', 'power-off']" style="color: black;"></fa-icon></a>
+        </li>
+      </ul>
     </div>
-</mat-toolbar>
+  </div>
+</nav>
+
+
+
+
+
+
